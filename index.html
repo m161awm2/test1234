@@ -1,0 +1,969 @@
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>m161awm | DevOps · Cloud · Backend</title>
+
+  <meta name="description" content="m161awm의 AWS, Linux, NestJS, DevOps 포트폴리오" />
+
+  <style>
+    :root {
+      --bg: #020617;
+      --panel: rgba(15, 23, 42, 0.72);
+      --panel2: rgba(30, 41, 59, 0.72);
+      --line: rgba(148, 163, 184, 0.22);
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --blue: #38bdf8;
+      --green: #34d399;
+      --purple: #a78bfa;
+      --pink: #fb7185;
+      --yellow: #facc15;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: Pretendard, Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 10% 10%, rgba(56, 189, 248, 0.24), transparent 28%),
+        radial-gradient(circle at 88% 18%, rgba(167, 139, 250, 0.22), transparent 30%),
+        radial-gradient(circle at 50% 88%, rgba(251, 113, 133, 0.16), transparent 32%),
+        linear-gradient(135deg, #020617 0%, #08111f 45%, #030712 100%);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+      background-size: 46px 46px;
+      mask-image: linear-gradient(to bottom, black 0%, transparent 88%);
+      z-index: -2;
+    }
+
+    .cursor-glow {
+      position: fixed;
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.13), transparent 62%);
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      z-index: -1;
+    }
+
+    .wrap {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(18px);
+      background: rgba(2, 6, 23, 0.68);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.15);
+    }
+
+    nav {
+      height: 74px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: white;
+      text-decoration: none;
+      font-weight: 1000;
+      letter-spacing: -0.04em;
+      font-size: 20px;
+    }
+
+    .logo {
+      width: 44px;
+      height: 44px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--blue), var(--purple), var(--pink));
+      box-shadow: 0 16px 45px rgba(56, 189, 248, 0.28);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 14px;
+      padding: 10px 13px;
+      border-radius: 999px;
+      transition: 0.22s;
+    }
+
+    .nav-links a:hover {
+      color: white;
+      background: rgba(255,255,255,0.08);
+    }
+
+    .hero {
+      min-height: calc(100vh - 74px);
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 52px;
+      align-items: center;
+      padding: 76px 0;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 15px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.065);
+      border-radius: 999px;
+      color: #cbd5e1;
+      font-weight: 900;
+      font-size: 14px;
+      margin-bottom: 24px;
+    }
+
+    .pulse {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 0 rgba(52, 211, 153, 0.7);
+      animation: pulse 1.6s infinite;
+    }
+
+    @keyframes pulse {
+      70% { box-shadow: 0 0 0 12px rgba(52, 211, 153, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0); }
+    }
+
+    h1 {
+      font-size: clamp(48px, 7vw, 94px);
+      line-height: 0.92;
+      letter-spacing: -0.085em;
+      margin-bottom: 28px;
+    }
+
+    .grad {
+      background: linear-gradient(90deg, white, #7dd3fc, #c4b5fd, #fb7185);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .subtitle {
+      max-width: 690px;
+      color: #cbd5e1;
+      line-height: 1.8;
+      font-size: clamp(17px, 2vw, 22px);
+      word-break: keep-all;
+      margin-bottom: 34px;
+    }
+
+    .subtitle strong {
+      color: white;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 26px;
+    }
+
+    .btn {
+      min-height: 54px;
+      padding: 0 22px;
+      border-radius: 18px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      color: white;
+      text-decoration: none;
+      font-weight: 1000;
+      transition: 0.25s;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.07);
+    }
+
+    .btn.main {
+      color: #02111f;
+      background: linear-gradient(135deg, #38bdf8, #a78bfa, #fb7185);
+      border: none;
+      box-shadow: 0 18px 55px rgba(56, 189, 248, 0.28);
+    }
+
+    .btn:hover {
+      transform: translateY(-4px);
+      filter: brightness(1.08);
+    }
+
+    .mini-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .mini {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.06);
+      border-radius: 20px;
+      padding: 16px;
+    }
+
+    .mini b {
+      display: block;
+      font-size: 19px;
+      margin-bottom: 6px;
+    }
+
+    .mini span {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .right {
+      position: relative;
+    }
+
+    .terminal {
+      border: 1px solid rgba(148, 163, 184, 0.24);
+      background: linear-gradient(180deg, rgba(15, 23, 42, 0.92), rgba(2, 6, 23, 0.88));
+      border-radius: 30px;
+      box-shadow: 0 30px 100px rgba(0, 0, 0, 0.5);
+      overflow: hidden;
+      transform: rotate(1.5deg);
+    }
+
+    .term-top {
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 18px;
+      background: rgba(255,255,255,0.055);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.18);
+    }
+
+    .dots {
+      display: flex;
+      gap: 8px;
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+
+    .red { background: #fb7185; }
+    .yellow { background: #facc15; }
+    .green { background: #34d399; }
+
+    .term-title {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .term-body {
+      padding: 24px;
+      font-family: Consolas, "SFMono-Regular", monospace;
+      min-height: 420px;
+    }
+
+    .term-output {
+      height: 300px;
+      overflow-y: auto;
+      padding-right: 6px;
+      margin-bottom: 18px;
+    }
+
+    .term-output::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .term-output::-webkit-scrollbar-thumb {
+      background: rgba(148, 163, 184, 0.35);
+      border-radius: 99px;
+    }
+
+    .line {
+      display: block;
+      color: #dbeafe;
+      line-height: 1.75;
+      font-size: 14px;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    .prompt {
+      color: var(--green);
+      font-weight: 1000;
+    }
+
+    .comment {
+      color: #93c5fd;
+    }
+
+    .ok {
+      color: var(--green);
+    }
+
+    .warn {
+      color: var(--yellow);
+    }
+
+    .input-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      background: rgba(255,255,255,0.055);
+      border-radius: 18px;
+      padding: 12px 14px;
+    }
+
+    .input-row input {
+      width: 100%;
+      color: white;
+      background: transparent;
+      border: none;
+      outline: none;
+      font: inherit;
+      font-size: 14px;
+    }
+
+    .terminal-help {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    .floating {
+      position: absolute;
+      padding: 13px 15px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.085);
+      backdrop-filter: blur(16px);
+      font-weight: 1000;
+      box-shadow: 0 18px 55px rgba(0,0,0,0.25);
+      animation: float 4s ease-in-out infinite;
+    }
+
+    .f1 { left: -24px; top: -24px; }
+    .f2 { right: -18px; bottom: 64px; animation-delay: -1.4s; }
+    .f3 { left: 28px; bottom: -22px; animation-delay: -2.6s; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-16px); }
+    }
+
+    section {
+      padding: 80px 0;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 30px;
+      margin-bottom: 30px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(34px, 4vw, 54px);
+      letter-spacing: -0.06em;
+      line-height: 1;
+    }
+
+    .section-head p {
+      max-width: 520px;
+      color: var(--muted);
+      line-height: 1.7;
+      font-weight: 700;
+      word-break: keep-all;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      min-height: 250px;
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,0.09), rgba(255,255,255,0.045));
+      border-radius: 28px;
+      padding: 26px;
+      transition: 0.28s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(125, 211, 252, 0.48);
+      background: linear-gradient(180deg, rgba(255,255,255,0.13), rgba(255,255,255,0.06));
+    }
+
+    .icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 18px;
+      background: rgba(56,189,248,0.15);
+      display: grid;
+      place-items: center;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .card h3 {
+      font-size: 22px;
+      letter-spacing: -0.04em;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      color: #cbd5e1;
+      line-height: 1.75;
+      word-break: keep-all;
+    }
+
+    .link-layout {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 20px;
+    }
+
+    .panel {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.07);
+      border-radius: 32px;
+      padding: 30px;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.22);
+    }
+
+    .panel h2 {
+      font-size: 40px;
+      letter-spacing: -0.06em;
+      margin-bottom: 14px;
+    }
+
+    .panel p {
+      color: #cbd5e1;
+      line-height: 1.75;
+      word-break: keep-all;
+      margin-bottom: 18px;
+    }
+
+    .big-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 21px;
+      border-radius: 24px;
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      background: rgba(255,255,255,0.07);
+      color: white;
+      text-decoration: none;
+      margin-top: 14px;
+      transition: 0.25s;
+    }
+
+    .big-link:hover {
+      transform: translateX(8px);
+      border-color: rgba(125, 211, 252, 0.5);
+      background: rgba(255,255,255,0.115);
+    }
+
+    .big-link b {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 18px;
+    }
+
+    .big-link span {
+      color: var(--muted);
+      font-size: 13px;
+      word-break: break-all;
+    }
+
+    .arrow {
+      color: var(--blue);
+      font-size: 26px;
+      font-weight: 1000;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 14px;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 44px 1fr;
+      gap: 16px;
+      padding: 18px;
+      border-radius: 22px;
+      border: 1px solid rgba(148, 163, 184, 0.18);
+      background: rgba(255,255,255,0.055);
+    }
+
+    .num {
+      width: 44px;
+      height: 44px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, rgba(56,189,248,0.25), rgba(167,139,250,0.25));
+      font-weight: 1000;
+    }
+
+    .step h3 {
+      margin-bottom: 6px;
+      font-size: 18px;
+    }
+
+    .step p {
+      color: var(--muted);
+      line-height: 1.65;
+      font-size: 14px;
+    }
+
+    footer {
+      padding: 44px 0 60px;
+      text-align: center;
+      color: var(--muted);
+      border-top: 1px solid rgba(148, 163, 184, 0.12);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: 0.75s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 960px) {
+      .hero,
+      .link-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .cards,
+      .mini-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .section-head {
+        display: block;
+      }
+
+      .section-head p {
+        margin-top: 16px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .terminal {
+        transform: none;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .wrap {
+        width: min(100% - 24px, 1180px);
+      }
+
+      h1 {
+        font-size: 52px;
+      }
+
+      .cards,
+      .mini-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .floating {
+        display: none;
+      }
+
+      .panel,
+      .card {
+        padding: 22px;
+        border-radius: 24px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="cursor-glow" id="cursorGlow"></div>
+
+  <header>
+    <nav class="wrap">
+      <a class="brand" href="#">
+        <span class="logo">⚡</span>
+        <span>m161awm</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="#stack">Stack</a>
+        <a href="#terminal">Terminal</a>
+        <a href="#links">Links</a>
+        <a href="#roadmap">Roadmap</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="wrap hero">
+      <div>
+        <div class="badge">
+          <span class="pulse"></span>
+          AWS EC2에서 직접 운영 중
+        </div>
+
+        <h1>
+          Cloud Infra를<br>
+          직접 만들고<br>
+          <span class="grad">운영하는 사람.</span>
+        </h1>
+
+        <p class="subtitle">
+          Flask에서 시작해서 지금은 <strong>NestJS, MySQL/MariaDB, Nginx, Linux, AWS EC2</strong>까지 직접 만지는
+          Cloud · DevOps · Backend 포트폴리오입니다. 단순한 소개 페이지가 아니라, 내가 실제로 배포하고 운영한 흔적을 보여주는 공간입니다.
+        </p>
+
+        <div class="actions">
+          <a class="btn main" href="http://3.105.80.123:3000/" target="_blank" rel="noopener noreferrer">🚀 Live Server</a>
+
+          <a class="btn" href="https://velog.io/@m161awm/posts" target="_blank" rel="noopener noreferrer">✍️ Velog</a>
+          <a class="btn" href="https://github.com/m161awm2" target="_blank" rel="noopener noreferrer">🧩 GitHub</a>
+        </div>
+
+        <div class="mini-grid">
+          <div class="mini">
+            <b>AWS</b>
+            <span>EC2 · SG · ALB 학습</span>
+          </div>
+          <div class="mini">
+            <b>Linux</b>
+            <span>Nginx · systemd · logs</span>
+          </div>
+          <div class="mini">
+            <b>NestJS</b>
+            <span>API · Session · Env</span>
+          </div>
+          <div class="mini">
+            <b>DB</b>
+            <span>MySQL · MariaDB · RDS</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="right" id="terminal">
+        <div class="floating f1">Bastion / NAT / VPC</div>
+        <div class="floating f2">Nginx Reverse Proxy</div>
+        <div class="floating f3">DevOps Roadmap</div>
+
+        <div class="terminal">
+          <div class="term-top">
+            <div class="dots">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+            </div>
+            <div class="term-title">m161awm@aws-ec2</div>
+          </div>
+
+          <div class="term-body">
+            <div class="term-output" id="terminalOutput">
+              <span class="line"><span class="prompt">$</span> whoami</span>
+              <span class="line">m161awm</span>
+              <span class="line"><span class="prompt">$</span> cat profile.txt</span>
+              <span class="line"><span class="comment">Cloud / DevOps / Backend를 직접 구축하며 배우는 중.</span></span>
+              <span class="line"><span class="prompt">$</span> help</span>
+              <span class="line">사용 가능 명령어: help, stack, server, blog, github, roadmap, clear</span>
+            </div>
+
+            <form class="input-row" id="terminalForm">
+              <span class="prompt">$</span>
+              <input id="terminalInput" autocomplete="off" placeholder="명령어 입력: stack, server, blog, github, roadmap" />
+            </form>
+
+            <div class="terminal-help">
+              이 터미널은 실제 서버 명령어 실행이 아니라, 포트폴리오용 인터랙티브 UI입니다.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap reveal" id="stack">
+      <div class="section-head">
+        <h2>My Real Stack</h2>
+        <p>그냥 기술 이름만 적는 게 아니라, 지금까지 직접 만졌던 인프라 흐름 중심으로 정리했습니다.</p>
+      </div>
+
+      <div class="cards">
+        <article class="card">
+          <div class="icon">☁️</div>
+          <h3>AWS Infrastructure</h3>
+          <p>EC2, Security Group, Public IP, VPC, NAT Gateway, ALB, Route 53 같은 클라우드 구성요소를 직접 실습하며 구조를 이해합니다.</p>
+        </article>
+
+        <article class="card">
+          <div class="icon">🧠</div>
+          <h3>Backend API</h3>
+          <p>Flask 게시판 API 경험을 바탕으로 NestJS에서 로그인, 회원가입, 세션, 환경변수, DB 연결 구조를 학습하고 있습니다.</p>
+        </article>
+
+        <article class="card">
+          <div class="icon">🛡️</div>
+          <h3>DevOps Mindset</h3>
+          <p>Nginx 설정, systemd/PM2 실행관리, 로그 확인, 포트/방화벽 문제 해결처럼 실제 운영에서 필요한 감각을 키우고 있습니다.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="wrap link-layout reveal" id="links">
+      <div class="panel">
+        <h2>Important Links</h2>
+        <p>가장 눈에 띄어야 하는 링크들입니다. 서버, 블로그, GitHub를 바로 연결했습니다.</p>
+
+        <a class="big-link" href="http://3.24.212.144:3000/" target="_blank" rel="noopener noreferrer">
+          <div>
+            <b>🚀 Live NestJS Server</b>
+            <span>http://3.24.212.144:3000/</span>
+          </div>
+          <strong class="arrow">→</strong>
+        </a>
+
+        <a class="big-link" href="https://velog.io/@m161awm/posts" target="_blank" rel="noopener noreferrer">
+          <div>
+            <b>✍️ Velog Tech Blog</b>
+            <span>https://velog.io/@m161awm/posts</span>
+          </div>
+          <strong class="arrow">→</strong>
+        </a>
+
+        <a class="big-link" href="https://github.com/m161awm2" target="_blank" rel="noopener noreferrer">
+          <div>
+            <b>🧩 GitHub Profile</b>
+            <span>https://github.com/m161awm2</span>
+          </div>
+          <strong class="arrow">→</strong>
+        </a>
+      </div>
+
+      <div class="panel" id="roadmap">
+        <h2>Roadmap</h2>
+
+        <div class="timeline">
+          <div class="step">
+            <div class="num">01</div>
+            <div>
+              <h3>Linux 서버 운영</h3>
+              <p>EC2 접속, Nginx 설정, 포트 확인, 로그 분석, systemctl 기반 운영 감각 익히기.</p>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="num">02</div>
+            <div>
+              <h3>Backend API 확장</h3>
+              <p>NestJS로 로그인, 게시판, 댓글, 세션, 환경변수, DB 연결 구조 완성하기.</p>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="num">03</div>
+            <div>
+              <h3>배포 자동화</h3>
+              <p>GitHub Actions, Docker, PM2/systemd, 배포 스크립트로 CI/CD 흐름 만들기.</p>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="num">04</div>
+            <div>
+              <h3>클라우드 아키텍처</h3>
+              <p>ALB, RDS, Bastion, Private Subnet, NAT Gateway까지 확장해서 실전 구조 만들기.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      © <span id="year"></span> m161awm. Built with AWS EC2 · Nginx · NestJS mindset.
+    </div>
+  </footer>
+
+  <script>
+    const year = document.getElementById("year");
+    year.textContent = new Date().getFullYear();
+
+    const cursorGlow = document.getElementById("cursorGlow");
+    window.addEventListener("mousemove", (e) => {
+      cursorGlow.style.left = e.clientX + "px";
+      cursorGlow.style.top = e.clientY + "px";
+    });
+
+    const output = document.getElementById("terminalOutput");
+    const form = document.getElementById("terminalForm");
+    const input = document.getElementById("terminalInput");
+
+    const commands = {
+      help: [
+        "사용 가능 명령어:",
+        "help     - 명령어 목록",
+        "stack    - 현재 기술스택",
+        "server   - Live NestJS 서버 링크",
+        "blog     - Velog 링크",
+        "github   - GitHub 링크",
+        "roadmap  - 앞으로의 학습 방향",
+        "clear    - 터미널 비우기"
+      ],
+      stack: [
+        "현재 스택:",
+        "AWS EC2 / Linux / Nginx",
+        "NestJS / TypeScript / Session / Env",
+        "MySQL / MariaDB / RDS 학습",
+        "Docker / CI/CD / ALB / VPC 확장 예정"
+      ],
+      server: [
+        "Live Server:",
+        "http://3.24.212.144:3000/",
+        "새 탭으로 이동합니다..."
+      ],
+      blog: [
+        "Velog:",
+        "https://velog.io/@m161awm/posts",
+        "새 탭으로 이동합니다..."
+      ],
+      github: [
+        "GitHub:",
+        "https://github.com/m161awm2",
+        "새 탭으로 이동합니다..."
+      ],
+      roadmap: [
+        "Roadmap:",
+        "1. NestJS API 완성",
+        "2. MySQL/MariaDB 구조 정리",
+        "3. Docker로 배포 구조 만들기",
+        "4. GitHub Actions CI/CD",
+        "5. ALB + RDS + Private Subnet 구조 확장"
+      ]
+    };
+
+    function printLine(text, className = "") {
+      const line = document.createElement("span");
+      line.className = "line " + className;
+      line.textContent = text;
+      output.appendChild(line);
+      output.scrollTop = output.scrollHeight;
+    }
+
+    function runCommand(raw) {
+      const cmd = raw.trim().toLowerCase();
+
+      if (!cmd) return;
+
+      const commandLine = document.createElement("span");
+      commandLine.className = "line";
+      commandLine.innerHTML = '<span class="prompt">$</span> ' + cmd;
+      output.appendChild(commandLine);
+
+      if (cmd === "clear") {
+        output.innerHTML = "";
+        return;
+      }
+
+      if (!commands[cmd]) {
+        printLine("command not found: " + cmd, "warn");
+        printLine("hint: help 를 입력해보세요.");
+        return;
+      }
+
+      commands[cmd].forEach((line) => printLine(line));
+
+      if (cmd === "server") {
+        setTimeout(() => window.open("http://3.24.212.144:3000/", "_blank"), 350);
+      }
+
+      if (cmd === "blog") {
+        setTimeout(() => window.open("https://velog.io/@m161awm/posts", "_blank"), 350);
+      }
+
+      if (cmd === "github") {
+        setTimeout(() => window.open("https://github.com/m161awm2", "_blank"), 350);
+      }
+    }
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      runCommand(input.value);
+      input.value = "";
+    });
+
+    const reveals = document.querySelectorAll(".reveal");
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add("active");
+      });
+    }, { threshold: 0.16 });
+
+    reveals.forEach((el) => observer.observe(el));
+  </script>
+</body>
+</html>
+
