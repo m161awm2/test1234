@@ -800,6 +800,38 @@
       font-weight: 1000;
     }
 
+    .post-sort {
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: -8px 0 24px;
+      padding: 6px;
+      border: 1px solid rgba(148, 163, 184, 0.18);
+      background: rgba(255,255,255,0.055);
+      border-radius: 18px;
+    }
+
+    .sort-btn {
+      min-height: 38px;
+      padding: 0 14px;
+      border: 1px solid transparent;
+      border-radius: 13px;
+      background: transparent;
+      color: var(--muted);
+      font: inherit;
+      font-size: 13px;
+      font-weight: 1000;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .sort-btn:hover,
+    .sort-btn.active {
+      color: white;
+      border-color: rgba(125, 211, 252, 0.36);
+      background: rgba(56, 189, 248, 0.13);
+    }
+
     .post-state {
       grid-column: 1 / -1;
       border: 1px solid var(--line);
@@ -1139,6 +1171,12 @@
         <p>AWS, Linux, Backend를 공부하며 기록한 최근 글입니다.</p>
       </div>
 
+      <div class="post-sort" id="postSort" aria-label="Velog 글 정렬">
+        <button class="sort-btn active" type="button" data-sort="latest">최신순</button>
+        <button class="sort-btn" type="button" data-sort="oldest">오래된순</button>
+        <button class="sort-btn" type="button" data-sort="likes">하트순</button>
+      </div>
+
       <div class="posts-grid" id="velogPosts">
         <div class="post-state">최근 글을 불러오는 중입니다.</div>
       </div>
@@ -1476,6 +1514,9 @@
       });
 
     const velogPosts = document.getElementById("velogPosts");
+    const postSort = document.getElementById("postSort");
+    let loadedVelogPosts = [];
+    let currentPostSort = "latest";
 
     function stripHtml(value) {
       const element = document.createElement("div");
@@ -1522,13 +1563,45 @@
       }
     }
 
-    function renderVelogPosts(posts) {
+    function getPostTime(post) {
+      const time = new Date(post.pubDate || "").getTime();
+      return Number.isNaN(time) ? 0 : time;
+    }
+
+    function getPostLikes(post) {
+      return Number.isFinite(Number(post.likes)) ? Number(post.likes) : 0;
+    }
+
+    function sortVelogPosts(posts, sortType) {
+      return [...posts].sort((a, b) => {
+        if (sortType === "oldest") return getPostTime(a) - getPostTime(b);
+        if (sortType === "likes") {
+          const likeDiff = getPostLikes(b) - getPostLikes(a);
+          return likeDiff || getPostTime(b) - getPostTime(a);
+        }
+
+        return getPostTime(b) - getPostTime(a);
+      });
+    }
+
+    function setActivePostSort(sortType) {
+      if (!postSort) return;
+
+      postSort.querySelectorAll(".sort-btn").forEach((button) => {
+        button.classList.toggle("active", button.dataset.sort === sortType);
+      });
+    }
+
+    function renderVelogPosts(posts, sortType = currentPostSort) {
       if (!Array.isArray(posts) || posts.length === 0) {
         velogPosts.innerHTML = '<div class="post-state">아직 표시할 글이 없습니다.</div>';
         return;
       }
 
-      velogPosts.innerHTML = posts.slice(0, 6).map((post) => {
+      currentPostSort = sortType;
+      setActivePostSort(sortType);
+
+      velogPosts.innerHTML = sortVelogPosts(posts, sortType).slice(0, 6).map((post) => {
         const title = stripHtml(post.title) || "제목 없는 글";
         const description = stripHtml(post.description) || "Velog에서 글 내용을 확인해보세요.";
         const date = formatPostDate(post.pubDate);
@@ -1557,12 +1630,24 @@
       }).join("");
     }
 
+    if (postSort) {
+      postSort.addEventListener("click", (event) => {
+        const button = event.target.closest(".sort-btn");
+        if (!button) return;
+
+        renderVelogPosts(loadedVelogPosts, button.dataset.sort || "latest");
+      });
+    }
+
     fetch("posts.json", { cache: "no-store" })
       .then((response) => {
         if (!response.ok) throw new Error("posts.json request failed");
         return response.json();
       })
-      .then(renderVelogPosts)
+      .then((posts) => {
+        loadedVelogPosts = Array.isArray(posts) ? posts : [];
+        renderVelogPosts(loadedVelogPosts);
+      })
       .catch(() => {
         velogPosts.innerHTML = '<div class="post-state">글을 불러오지 못했습니다.</div>';
       });
