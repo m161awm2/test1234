@@ -18,6 +18,12 @@ function cleanText(value) {
     .trim();
 }
 
+function extractFirstImage(value) {
+  const html = String(value || "");
+  const match = html.match(/<img[^>]+src=["']([^"']+)["']/i);
+  return match ? match[1].trim() : "";
+}
+
 function truncateText(value, maxLength = 220) {
   const text = cleanText(value);
   return text.length > maxLength ? `${text.slice(0, maxLength).trim()}...` : text;
@@ -46,7 +52,8 @@ async function fetchVelogPosts() {
     title: cleanText(item.title),
     link: String(item.link || "").trim(),
     pubDate: String(item.pubDate || "").trim(),
-    description: truncateText(item.description)
+    description: truncateText(item.description),
+    thumbnail: extractFirstImage(item.description)
   }));
 }
 
