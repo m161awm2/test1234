@@ -212,7 +212,7 @@
       font-weight: 800;
     }
 
-    .awards-box {
+    .journey-box {
       margin: 0 0 30px;
       border: 1px solid var(--line);
       background: rgba(255,255,255,0.06);
@@ -221,33 +221,42 @@
       max-width: 640px;
     }
 
-    .awards-box h2 {
+    .journey-box h2 {
       font-size: 18px;
       letter-spacing: -0.03em;
       margin-bottom: 14px;
     }
 
-    .awards-list {
+    .journey-list {
       display: grid;
       gap: 12px;
     }
 
-    .award-item {
+    .journey-item {
       display: grid;
-      gap: 6px;
+      grid-template-columns: 92px 1fr;
+      gap: 14px;
       padding: 16px;
       border: 1px solid rgba(148, 163, 184, 0.18);
       background: rgba(15, 23, 42, 0.42);
       border-radius: 18px;
     }
 
-    .award-item b {
-      font-size: 17px;
-      letter-spacing: -0.03em;
+    .journey-date {
+      color: var(--green);
+      font-size: 13px;
+      font-weight: 1000;
+      line-height: 1.5;
     }
 
-    .award-item span,
-    .award-item p {
+    .journey-item b {
+      display: block;
+      font-size: 17px;
+      letter-spacing: -0.03em;
+      margin-bottom: 6px;
+    }
+
+    .journey-item p {
       color: var(--muted);
       line-height: 1.6;
       font-size: 14px;
@@ -782,6 +791,10 @@
         display: none;
       }
 
+      .journey-item {
+        grid-template-columns: 1fr;
+      }
+
       .panel,
       .card {
         padding: 22px;
@@ -828,11 +841,15 @@
           <span>구본무</span>
         </div>
 
-        <div class="awards-box">
-          <h2>수상 경력</h2>
-          <div class="awards-list" id="awardsList">
-            <div class="award-item">
-              <b>불러오는 중입니다.</b>
+        <div class="journey-box">
+          <h2>나의 여정</h2>
+          <div class="journey-list" id="journeyList">
+            <div class="journey-item">
+              <span class="journey-date">2026.03.03</span>
+              <div>
+                <b>세명컴퓨터고등학교 입학</b>
+                <p>보안과에서 개발, 인프라, 클라우드를 공부하기 시작했습니다.</p>
+              </div>
             </div>
           </div>
         </div>
@@ -1123,38 +1140,48 @@
       input.value = "";
     });
 
-    const awardsList = document.getElementById("awardsList");
-
-    function renderAwards(awards) {
-      if (!Array.isArray(awards) || awards.length === 0) {
-        awardsList.innerHTML = '<div class="award-item"><b>비어있습니다!</b></div>';
-        return;
+    const journeyList = document.getElementById("journeyList");
+    const defaultJourney = [
+      {
+        date: "2026.03.03",
+        title: "세명컴퓨터고등학교 입학",
+        description: "보안과에서 개발, 인프라, 클라우드를 공부하기 시작했습니다."
       }
+    ];
 
-      awardsList.innerHTML = awards.map((award) => {
-        const title = escapeHtml(award.title || "비어있습니다!");
-        const meta = [award.organization, award.date].filter(Boolean).join(" · ");
-        const description = award.description || "";
+    function renderJourney(items) {
+      const journey = Array.isArray(items) && items.length > 0 ? items : defaultJourney;
+
+      journeyList.innerHTML = journey.map((item) => {
+        const date = escapeHtml(item.date || "");
+        const title = escapeHtml(item.title || "기록을 준비 중입니다.");
+        const description = item.description || "";
 
         return `
-          <div class="award-item">
-            <b>${title}</b>
-            ${meta ? `<span>${escapeHtml(meta)}</span>` : ""}
-            ${description ? `<p>${escapeHtml(description)}</p>` : ""}
+          <div class="journey-item">
+            <span class="journey-date">${date || "Now"}</span>
+            <div>
+              <b>${title}</b>
+              ${description ? `<p>${escapeHtml(description)}</p>` : ""}
+            </div>
           </div>
         `;
       }).join("");
     }
 
-    fetch("awards.json", { cache: "no-store" })
-      .then((response) => {
-        if (!response.ok) throw new Error("awards.json request failed");
-        return response.json();
-      })
-      .then(renderAwards)
-      .catch(() => {
-        awardsList.innerHTML = '<div class="award-item"><b>수상 경력을 불러오지 못했습니다.</b></div>';
-      });
+    if (journeyList) {
+      renderJourney(defaultJourney);
+
+      fetch("journey.json", { cache: "no-store" })
+        .then((response) => {
+          if (!response.ok) throw new Error("journey.json request failed");
+          return response.json();
+        })
+        .then(renderJourney)
+        .catch(() => {
+          renderJourney(defaultJourney);
+        });
+    }
 
     const velogPosts = document.getElementById("velogPosts");
 
