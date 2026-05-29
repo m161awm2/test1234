@@ -1,0 +1,12 @@
+{
+  "name": "test1234",
+  "version": "1.0.0",
+  "private": true,
+  "description": "GitHub Pages static site with Velog RSS generated posts.json",
+  "scripts": {
+    "fetch:velog": "node scripts/fetch-velog.js"
+  },
+  "dependencies": {
+    "fast-xml-parser": "^5.8.0"
+  }
+}

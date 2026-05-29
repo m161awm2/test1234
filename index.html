@@ -467,6 +467,77 @@
       word-break: keep-all;
     }
 
+    .posts-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .post-card {
+      min-height: 230px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 22px;
+      color: white;
+      text-decoration: none;
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,0.09), rgba(255,255,255,0.045));
+      border-radius: 28px;
+      padding: 26px;
+      transition: 0.28s;
+    }
+
+    .post-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(52, 211, 153, 0.5);
+      background: linear-gradient(180deg, rgba(255,255,255,0.13), rgba(255,255,255,0.06));
+    }
+
+    .post-date {
+      color: var(--green);
+      font-size: 13px;
+      font-weight: 1000;
+      margin-bottom: 14px;
+    }
+
+    .post-card h3 {
+      font-size: 22px;
+      letter-spacing: -0.04em;
+      line-height: 1.35;
+      margin-bottom: 12px;
+      word-break: keep-all;
+    }
+
+    .post-card p {
+      color: #cbd5e1;
+      line-height: 1.7;
+      word-break: keep-all;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .post-more {
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      color: var(--blue);
+      font-size: 14px;
+      font-weight: 1000;
+    }
+
+    .post-state {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.06);
+      border-radius: 24px;
+      padding: 24px;
+      color: #cbd5e1;
+      font-weight: 800;
+    }
+
     .link-layout {
       display: grid;
       grid-template-columns: 0.95fr 1.05fr;
@@ -594,6 +665,7 @@
       }
 
       .cards,
+      .posts-grid,
       .mini-grid {
         grid-template-columns: 1fr 1fr;
       }
@@ -625,6 +697,7 @@
       }
 
       .cards,
+      .posts-grid,
       .mini-grid {
         grid-template-columns: 1fr;
       }
@@ -655,6 +728,7 @@
       <div class="nav-links">
         <a href="#stack">Stack</a>
         <a href="#terminal">Terminal</a>
+        <a href="#posts">Velog</a>
         <a href="#links">Links</a>
         <a href="#roadmap">Roadmap</a>
       </div>
@@ -769,6 +843,17 @@
           <h3>DevOps Mindset</h3>
           <p>Nginx 설정, systemd/PM2 실행관리, 로그 확인, 포트/방화벽 문제 해결처럼 실제 운영에서 필요한 감각을 키우고 있습니다.</p>
         </article>
+      </div>
+    </section>
+
+    <section class="wrap reveal" id="posts">
+      <div class="section-head">
+        <h2>Latest Velog Posts</h2>
+        <p>GitHub Actions가 Velog RSS를 매일 가져와 생성한 posts.json을 정적 페이지에서 읽어옵니다.</p>
+      </div>
+
+      <div class="posts-grid" id="velogPosts">
+        <div class="post-state">Velog 글을 불러오는 중입니다.</div>
       </div>
     </section>
 
@@ -955,6 +1040,79 @@
       input.value = "";
     });
 
+    const velogPosts = document.getElementById("velogPosts");
+
+    function stripHtml(value) {
+      const element = document.createElement("div");
+      element.innerHTML = value || "";
+      return (element.textContent || element.innerText || "").replace(/\s+/g, " ").trim();
+    }
+
+    function formatPostDate(value) {
+      const date = new Date(value);
+      if (Number.isNaN(date.getTime())) return "";
+
+      return new Intl.DateTimeFormat("ko-KR", {
+        year: "numeric",
+        month: "short",
+        day: "numeric"
+      }).format(date);
+    }
+
+    function escapeHtml(value) {
+      return String(value || "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+    }
+
+    function getPostLink(value) {
+      const fallback = "https://velog.io/@m161awm/posts";
+
+      try {
+        const url = new URL(value || fallback);
+        return url.protocol === "https:" ? url.href : fallback;
+      } catch {
+        return fallback;
+      }
+    }
+
+    function renderVelogPosts(posts) {
+      if (!Array.isArray(posts) || posts.length === 0) {
+        velogPosts.innerHTML = '<div class="post-state">아직 표시할 Velog 글이 없습니다.</div>';
+        return;
+      }
+
+      velogPosts.innerHTML = posts.slice(0, 6).map((post) => {
+        const title = stripHtml(post.title) || "제목 없는 글";
+        const description = stripHtml(post.description) || "Velog에서 글 내용을 확인해보세요.";
+        const date = formatPostDate(post.pubDate);
+        const link = getPostLink(post.link);
+
+        return `
+          <a class="post-card" href="${escapeHtml(link)}" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="post-date">${escapeHtml(date || "Velog")}</div>
+              <h3>${escapeHtml(title)}</h3>
+              <p>${escapeHtml(description)}</p>
+            </div>
+            <span class="post-more">원문 보러가기 <strong>→</strong></span>
+          </a>
+        `;
+      }).join("");
+    }
+
+    fetch("/posts.json", { cache: "no-store" })
+      .then((response) => {
+        if (!response.ok) throw new Error("posts.json request failed");
+        return response.json();
+      })
+      .then(renderVelogPosts)
+      .catch(() => {
+        velogPosts.innerHTML = '<div class="post-state">글을 불러오지 못했습니다.</div>';
+      });
+
     const reveals = document.querySelectorAll(".reveal");
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -966,4 +1124,3 @@
   </script>
 </body>
 </html>
-
