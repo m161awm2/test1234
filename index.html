@@ -623,12 +623,6 @@
       font-weight: 800;
     }
 
-    .link-layout {
-      display: grid;
-      grid-template-columns: 0.95fr 1.05fr;
-      gap: 20px;
-    }
-
     .panel {
       border: 1px solid var(--line);
       background: rgba(255,255,255,0.07);
@@ -648,6 +642,11 @@
       line-height: 1.75;
       word-break: keep-all;
       margin-bottom: 18px;
+    }
+
+    .links-list {
+      display: grid;
+      gap: 14px;
     }
 
     .big-link {
@@ -683,46 +682,19 @@
       word-break: break-all;
     }
 
+    .link-state {
+      border: 1px solid rgba(148, 163, 184, 0.18);
+      background: rgba(15, 23, 42, 0.42);
+      border-radius: 18px;
+      padding: 18px;
+      color: #cbd5e1;
+      font-weight: 800;
+    }
+
     .arrow {
       color: var(--blue);
       font-size: 26px;
       font-weight: 1000;
-    }
-
-    .timeline {
-      display: grid;
-      gap: 14px;
-    }
-
-    .step {
-      display: grid;
-      grid-template-columns: 44px 1fr;
-      gap: 16px;
-      padding: 18px;
-      border-radius: 22px;
-      border: 1px solid rgba(148, 163, 184, 0.18);
-      background: rgba(255,255,255,0.055);
-    }
-
-    .num {
-      width: 44px;
-      height: 44px;
-      border-radius: 16px;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(135deg, rgba(56,189,248,0.25), rgba(167,139,250,0.25));
-      font-weight: 1000;
-    }
-
-    .step h3 {
-      margin-bottom: 6px;
-      font-size: 18px;
-    }
-
-    .step p {
-      color: var(--muted);
-      line-height: 1.65;
-      font-size: 14px;
     }
 
     footer {
@@ -744,8 +716,7 @@
     }
 
     @media (max-width: 960px) {
-      .hero,
-      .link-layout {
+      .hero {
         grid-template-columns: 1fr;
       }
 
@@ -819,7 +790,6 @@
         <a href="#terminal">Terminal</a>
         <a href="#posts">Velog</a>
         <a href="#links">Links</a>
-        <a href="#roadmap">Roadmap</a>
       </div>
     </nav>
   </header>
@@ -884,7 +854,7 @@
       <div class="right" id="terminal">
         <div class="floating f1">Bastion / NAT / VPC</div>
         <div class="floating f2">Nginx Reverse Proxy</div>
-        <div class="floating f3">DevOps Roadmap</div>
+        <div class="floating f3">Cloud Practice</div>
 
         <div class="terminal">
           <div class="term-top">
@@ -903,12 +873,12 @@
               <span class="line"><span class="prompt">$</span> cat profile.txt</span>
               <span class="line"><span class="comment">Cloud / DevOps / Backend를 직접 구축하며 배우는 중.</span></span>
               <span class="line"><span class="prompt">$</span> help</span>
-              <span class="line">사용 가능 명령어: help, stack, server, blog, github, roadmap, clear</span>
+              <span class="line">사용 가능 명령어: help, stack, server, blog, github, clear</span>
             </div>
 
             <form class="input-row" id="terminalForm">
               <span class="prompt">$</span>
-              <input id="terminalInput" autocomplete="off" placeholder="명령어 입력: stack, server, blog, github, roadmap" />
+              <input id="terminalInput" autocomplete="off" placeholder="명령어 입력: stack, server, blog, github" />
             </form>
 
             <div class="terminal-help">
@@ -957,71 +927,13 @@
       </div>
     </section>
 
-    <section class="wrap link-layout reveal" id="links">
+    <section class="wrap reveal" id="links">
       <div class="panel">
         <h2>Links</h2>
         <p>운영 중인 서버와 학습 기록, 코드를 한곳에 모았습니다.</p>
 
-        <a class="big-link" href="http://3.24.212.144:3000/" target="_blank" rel="noopener noreferrer">
-          <div>
-            <b>🚀 Live NestJS Server</b>
-            <span>http://3.24.212.144:3000/</span>
-          </div>
-          <strong class="arrow">→</strong>
-        </a>
-
-        <a class="big-link" href="https://velog.io/@m161awm/posts" target="_blank" rel="noopener noreferrer">
-          <div>
-            <b>✍️ Velog Tech Blog</b>
-            <span>https://velog.io/@m161awm/posts</span>
-          </div>
-          <strong class="arrow">→</strong>
-        </a>
-
-        <a class="big-link" href="https://github.com/m161awm2" target="_blank" rel="noopener noreferrer">
-          <div>
-            <b>🧩 GitHub Profile</b>
-            <span>https://github.com/m161awm2</span>
-          </div>
-          <strong class="arrow">→</strong>
-        </a>
-      </div>
-
-      <div class="panel" id="roadmap">
-        <h2>Roadmap</h2>
-
-        <div class="timeline">
-          <div class="step">
-            <div class="num">01</div>
-            <div>
-              <h3>Linux 서버 운영</h3>
-              <p>EC2 접속, Nginx 설정, 포트 확인, 로그 분석, systemctl 기반 운영 감각 익히기.</p>
-            </div>
-          </div>
-
-          <div class="step">
-            <div class="num">02</div>
-            <div>
-              <h3>Backend API 확장</h3>
-              <p>NestJS로 로그인, 게시판, 댓글, 세션, 환경변수, DB 연결 구조 완성하기.</p>
-            </div>
-          </div>
-
-          <div class="step">
-            <div class="num">03</div>
-            <div>
-              <h3>배포 자동화</h3>
-              <p>GitHub Actions, Docker, PM2/systemd, 배포 스크립트로 CI/CD 흐름 만들기.</p>
-            </div>
-          </div>
-
-          <div class="step">
-            <div class="num">04</div>
-            <div>
-              <h3>클라우드 아키텍처</h3>
-              <p>ALB, RDS, Bastion, Private Subnet, NAT Gateway까지 확장해서 실전 구조 만들기.</p>
-            </div>
-          </div>
+        <div class="links-list" id="linksList">
+          <div class="link-state">링크를 불러오는 중입니다.</div>
         </div>
       </div>
     </section>
@@ -1055,7 +967,6 @@
         "server   - Live NestJS 서버 링크",
         "blog     - Velog 링크",
         "github   - GitHub 링크",
-        "roadmap  - 앞으로의 학습 방향",
         "clear    - 터미널 비우기"
       ],
       stack: [
@@ -1079,14 +990,6 @@
         "GitHub:",
         "https://github.com/m161awm2",
         "새 탭으로 이동합니다..."
-      ],
-      roadmap: [
-        "Roadmap:",
-        "1. NestJS API 완성",
-        "2. MySQL/MariaDB 구조 정리",
-        "3. Docker로 배포 구조 만들기",
-        "4. GitHub Actions CI/CD",
-        "5. ALB + RDS + Private Subnet 구조 확장"
       ]
     };
 
@@ -1180,6 +1083,71 @@
         .then(renderJourney)
         .catch(() => {
           renderJourney(defaultJourney);
+        });
+    }
+
+    const linksList = document.getElementById("linksList");
+    const defaultLinks = [
+      {
+        title: "🚀 Live NestJS Server",
+        url: "http://3.24.212.144:3000/",
+        description: "http://3.24.212.144:3000/"
+      },
+      {
+        title: "✍️ Velog Tech Blog",
+        url: "https://velog.io/@m161awm/posts",
+        description: "https://velog.io/@m161awm/posts"
+      },
+      {
+        title: "🧩 GitHub Profile",
+        url: "https://github.com/m161awm2",
+        description: "https://github.com/m161awm2"
+      }
+    ];
+
+    function getSafeUrl(value) {
+      try {
+        const url = new URL(value || "");
+        return ["http:", "https:"].includes(url.protocol) ? url.href : "";
+      } catch {
+        return "";
+      }
+    }
+
+    function renderLinks(items) {
+      const links = Array.isArray(items) && items.length > 0 ? items : defaultLinks;
+      const markup = links.map((item) => {
+        const url = getSafeUrl(item.url);
+        if (!url) return "";
+
+        const title = escapeHtml(item.title || "Link");
+        const description = escapeHtml(item.description || url);
+
+        return `
+          <a class="big-link" href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">
+            <div>
+              <b>${title}</b>
+              <span>${description}</span>
+            </div>
+            <strong class="arrow">→</strong>
+          </a>
+        `;
+      }).join("");
+
+      linksList.innerHTML = markup || '<div class="link-state">표시할 링크가 없습니다.</div>';
+    }
+
+    if (linksList) {
+      renderLinks(defaultLinks);
+
+      fetch("links.json", { cache: "no-store" })
+        .then((response) => {
+          if (!response.ok) throw new Error("links.json request failed");
+          return response.json();
+        })
+        .then(renderLinks)
+        .catch(() => {
+          renderLinks(defaultLinks);
         });
     }
 
