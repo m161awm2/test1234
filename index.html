@@ -824,11 +824,10 @@
           </div>
         </div>
 
-        <div class="actions">
-          <a class="btn main" href="http://instagram-ALB-773593476.ap-southeast-2.elb.amazonaws.com/" target="_blank" rel="noopener noreferrer">🚀 Live Server</a>
-
-          <a class="btn" href="https://velog.io/@m161awm/posts" target="_blank" rel="noopener noreferrer">✍️ Velog</a>
-          <a class="btn" href="https://github.com/m161awm2" target="_blank" rel="noopener noreferrer">🧩 GitHub</a>
+        <div class="actions" id="heroLinks">
+          <a class="btn main" href="http://3.24.212.144:3000/" target="_blank" rel="noopener noreferrer">🚀 Live NestJS Server</a>
+          <a class="btn" href="https://velog.io/@m161awm/posts" target="_blank" rel="noopener noreferrer">✍️ Velog Tech Blog</a>
+          <a class="btn" href="https://github.com/m161awm2" target="_blank" rel="noopener noreferrer">🧩 GitHub Profile</a>
         </div>
 
         <div class="mini-grid">
@@ -1086,24 +1085,32 @@
         });
     }
 
+    const heroLinks = document.getElementById("heroLinks");
     const linksList = document.getElementById("linksList");
     const defaultLinks = [
       {
         title: "🚀 Live NestJS Server",
+        shortTitle: "🚀 Live Server",
         url: "http://3.24.212.144:3000/",
         description: "http://3.24.212.144:3000/"
       },
       {
         title: "✍️ Velog Tech Blog",
+        shortTitle: "✍️ Velog",
         url: "https://velog.io/@m161awm/posts",
         description: "https://velog.io/@m161awm/posts"
       },
       {
         title: "🧩 GitHub Profile",
+        shortTitle: "🧩 GitHub",
         url: "https://github.com/m161awm2",
         description: "https://github.com/m161awm2"
       }
     ];
+
+    function getLinkLabel(value) {
+      return String(value || "Link").replace(/\s+(Server|Blog|Profile)$/i, "");
+    }
 
     function getSafeUrl(value) {
       try {
@@ -1114,8 +1121,26 @@
       }
     }
 
-    function renderLinks(items) {
-      const links = Array.isArray(items) && items.length > 0 ? items : defaultLinks;
+    function renderHeroLinks(links) {
+      if (!heroLinks) return;
+
+      const markup = links.map((item, index) => {
+        const url = getSafeUrl(item.url);
+        if (!url) return "";
+
+        const label = item.shortTitle || getLinkLabel(item.title);
+        const title = escapeHtml(label);
+        const className = index === 0 ? "btn main" : "btn";
+
+        return `<a class="${className}" href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">${title}</a>`;
+      }).join("");
+
+      if (markup) heroLinks.innerHTML = markup;
+    }
+
+    function renderLinksList(links) {
+      if (!linksList) return;
+
       const markup = links.map((item) => {
         const url = getSafeUrl(item.url);
         if (!url) return "";
@@ -1137,19 +1162,23 @@
       linksList.innerHTML = markup || '<div class="link-state">표시할 링크가 없습니다.</div>';
     }
 
-    if (linksList) {
-      renderLinks(defaultLinks);
-
-      fetch("links.json", { cache: "no-store" })
-        .then((response) => {
-          if (!response.ok) throw new Error("links.json request failed");
-          return response.json();
-        })
-        .then(renderLinks)
-        .catch(() => {
-          renderLinks(defaultLinks);
-        });
+    function renderLinks(items) {
+      const links = Array.isArray(items) && items.length > 0 ? items : defaultLinks;
+      renderHeroLinks(links);
+      renderLinksList(links);
     }
+
+    renderLinks(defaultLinks);
+
+    fetch("links.json", { cache: "no-store" })
+      .then((response) => {
+        if (!response.ok) throw new Error("links.json request failed");
+        return response.json();
+      })
+      .then(renderLinks)
+      .catch(() => {
+        renderLinks(defaultLinks);
+      });
 
     const velogPosts = document.getElementById("velogPosts");
 
