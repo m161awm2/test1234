@@ -174,6 +174,54 @@
       margin-bottom: 28px;
     }
 
+    .hero-title {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 0.18em;
+      letter-spacing: 0;
+      line-height: 1;
+      animation: heroRise 0.8s ease both;
+    }
+
+    .hero-title-text {
+      background: linear-gradient(90deg, white, #7dd3fc, #c4b5fd, white);
+      background-size: 220% 100%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: textSheen 5.5s ease-in-out infinite;
+    }
+
+    .wave {
+      display: inline-block;
+      transform-origin: 70% 70%;
+      animation: waveHand 2.2s ease-in-out infinite;
+    }
+
+    @keyframes heroRise {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes textSheen {
+      0%, 68%, 100% { background-position: 0% 50%; }
+      34% { background-position: 100% 50%; }
+    }
+
+    @keyframes waveHand {
+      0%, 42%, 100% { transform: rotate(0deg); }
+      8% { transform: rotate(15deg); }
+      16% { transform: rotate(-8deg); }
+      24% { transform: rotate(13deg); }
+      32% { transform: rotate(-4deg); }
+    }
+
     .grad {
       background: linear-gradient(90deg, white, #7dd3fc, #c4b5fd, #fb7185);
       -webkit-background-clip: text;
@@ -198,18 +246,56 @@
       display: grid;
       gap: 8px;
       margin-bottom: 28px;
+      animation: heroRise 0.8s ease 0.12s both;
     }
 
     .identity b {
+      width: fit-content;
       color: white;
       font-size: clamp(22px, 3vw, 34px);
-      letter-spacing: -0.04em;
+      letter-spacing: 0;
+      position: relative;
+    }
+
+    .identity b::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -7px;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--blue), var(--green), var(--purple));
+      transform-origin: left;
+      animation: lineGrow 1s ease 0.55s both;
     }
 
     .identity span {
+      width: fit-content;
       color: #cbd5e1;
       font-size: clamp(16px, 2vw, 20px);
       font-weight: 800;
+      padding: 8px 12px;
+      border: 1px solid rgba(148, 163, 184, 0.18);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.055);
+      box-shadow: 0 14px 40px rgba(56, 189, 248, 0.08);
+      margin-top: 8px;
+    }
+
+    @keyframes lineGrow {
+      from { transform: scaleX(0); }
+      to { transform: scaleX(1); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-title,
+      .hero-title-text,
+      .wave,
+      .identity,
+      .identity b::after {
+        animation: none;
+      }
     }
 
     .journey-box {
@@ -802,8 +888,9 @@
           보안과 학생 개발자
         </div>
 
-        <h1>
-          안녕하세요 👋
+        <h1 class="hero-title">
+          <span class="hero-title-text">안녕하세요</span>
+          <span class="wave" aria-hidden="true">👋</span>
         </h1>
 
         <div class="identity">
