@@ -194,6 +194,67 @@
       color: white;
     }
 
+    .identity {
+      display: grid;
+      gap: 8px;
+      margin-bottom: 28px;
+    }
+
+    .identity b {
+      color: white;
+      font-size: clamp(22px, 3vw, 34px);
+      letter-spacing: -0.04em;
+    }
+
+    .identity span {
+      color: #cbd5e1;
+      font-size: clamp(16px, 2vw, 20px);
+      font-weight: 800;
+    }
+
+    .awards-box {
+      margin: 0 0 30px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.06);
+      border-radius: 24px;
+      padding: 22px;
+      max-width: 640px;
+    }
+
+    .awards-box h2 {
+      font-size: 18px;
+      letter-spacing: -0.03em;
+      margin-bottom: 14px;
+    }
+
+    .awards-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .award-item {
+      display: grid;
+      gap: 6px;
+      padding: 16px;
+      border: 1px solid rgba(148, 163, 184, 0.18);
+      background: rgba(15, 23, 42, 0.42);
+      border-radius: 18px;
+    }
+
+    .award-item b {
+      font-size: 17px;
+      letter-spacing: -0.03em;
+    }
+
+    .award-item span,
+    .award-item p {
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 14px;
+      font-weight: 700;
+      word-break: keep-all;
+    }
+
     .actions {
       display: flex;
       flex-wrap: wrap;
@@ -755,19 +816,26 @@
       <div>
         <div class="badge">
           <span class="pulse"></span>
-          AWS EC2에서 직접 운영 중
+          보안과 학생 개발자
         </div>
 
         <h1>
-          Cloud Infra를<br>
-          직접 만들고<br>
-          <span class="grad">운영하는 사람.</span>
+          안녕하세요 👋
         </h1>
 
-        <p class="subtitle">
-          Flask에서 시작해서 지금은 <strong>NestJS, MySQL/MariaDB, Nginx, Linux, AWS EC2</strong>까지 직접 만지는
-          Cloud · DevOps · Backend 포트폴리오입니다. 단순한 소개 페이지가 아니라, 내가 실제로 배포하고 운영한 흔적을 보여주는 공간입니다.
-        </p>
+        <div class="identity">
+          <b>세명컴퓨터고등학교 보안과</b>
+          <span>구본무</span>
+        </div>
+
+        <div class="awards-box">
+          <h2>수상 경력</h2>
+          <div class="awards-list" id="awardsList">
+            <div class="award-item">
+              <b>불러오는 중입니다.</b>
+            </div>
+          </div>
+        </div>
 
         <div class="actions">
           <a class="btn main" href="http://instagram-ALB-773593476.ap-southeast-2.elb.amazonaws.com/" target="_blank" rel="noopener noreferrer">🚀 Live Server</a>
@@ -1054,6 +1122,39 @@
       runCommand(input.value);
       input.value = "";
     });
+
+    const awardsList = document.getElementById("awardsList");
+
+    function renderAwards(awards) {
+      if (!Array.isArray(awards) || awards.length === 0) {
+        awardsList.innerHTML = '<div class="award-item"><b>비어있습니다!</b></div>';
+        return;
+      }
+
+      awardsList.innerHTML = awards.map((award) => {
+        const title = escapeHtml(award.title || "비어있습니다!");
+        const meta = [award.organization, award.date].filter(Boolean).join(" · ");
+        const description = award.description || "";
+
+        return `
+          <div class="award-item">
+            <b>${title}</b>
+            ${meta ? `<span>${escapeHtml(meta)}</span>` : ""}
+            ${description ? `<p>${escapeHtml(description)}</p>` : ""}
+          </div>
+        `;
+      }).join("");
+    }
+
+    fetch("awards.json", { cache: "no-store" })
+      .then((response) => {
+        if (!response.ok) throw new Error("awards.json request failed");
+        return response.json();
+      })
+      .then(renderAwards)
+      .catch(() => {
+        awardsList.innerHTML = '<div class="award-item"><b>수상 경력을 불러오지 못했습니다.</b></div>';
+      });
 
     const velogPosts = document.getElementById("velogPosts");
 
