@@ -623,6 +623,99 @@
       word-break: keep-all;
     }
 
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .project-card {
+      min-height: 220px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 24px;
+      color: white;
+      text-decoration: none;
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,0.09), rgba(255,255,255,0.045));
+      border-radius: 28px;
+      padding: 26px;
+      transition: 0.28s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(56,189,248,0.16), transparent 38%, rgba(52,211,153,0.1));
+      opacity: 0;
+      transition: 0.28s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(125, 211, 252, 0.5);
+    }
+
+    .project-card:hover::before {
+      opacity: 1;
+    }
+
+    .project-card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .project-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 14px;
+    }
+
+    .project-card h3 {
+      font-size: 24px;
+      letter-spacing: -0.04em;
+      line-height: 1.25;
+      word-break: break-word;
+    }
+
+    .project-card p {
+      color: #cbd5e1;
+      line-height: 1.7;
+      word-break: keep-all;
+    }
+
+    .project-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .project-meta span {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 0 11px;
+      border: 1px solid rgba(148, 163, 184, 0.18);
+      background: rgba(15, 23, 42, 0.42);
+      border-radius: 999px;
+    }
+
+    .project-arrow {
+      color: var(--blue);
+      font-size: 26px;
+      font-weight: 1000;
+      flex: 0 0 auto;
+    }
+
     .posts-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -807,6 +900,7 @@
       }
 
       .cards,
+      .projects-grid,
       .posts-grid,
       .mini-grid {
         grid-template-columns: 1fr 1fr;
@@ -820,7 +914,23 @@
         margin-top: 16px;
       }
 
+      nav {
+        height: auto;
+        min-height: 74px;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+        padding: 14px 0;
+      }
+
       .nav-links {
+        width: 100%;
+        overflow-x: auto;
+        padding-bottom: 4px;
+        scrollbar-width: none;
+      }
+
+      .nav-links::-webkit-scrollbar {
         display: none;
       }
 
@@ -839,6 +949,7 @@
       }
 
       .cards,
+      .projects-grid,
       .posts-grid,
       .mini-grid {
         grid-template-columns: 1fr;
@@ -874,6 +985,7 @@
       <div class="nav-links">
         <a href="#stack">Stack</a>
         <a href="#terminal">Terminal</a>
+        <a href="#projects">Projects</a>
         <a href="#posts">Velog</a>
         <a href="#links">Links</a>
       </div>
@@ -999,6 +1111,17 @@
           <h3>DevOps Mindset</h3>
           <p>Nginx 설정, systemd/PM2 실행관리, 로그 확인, 포트/방화벽 문제 해결처럼 실제 운영에서 필요한 감각을 키우고 있습니다.</p>
         </article>
+      </div>
+    </section>
+
+    <section class="wrap reveal" id="projects">
+      <div class="section-head">
+        <h2>Projects</h2>
+        <p>GitHub 프로필에 고정해둔 프로젝트만 모았습니다.</p>
+      </div>
+
+      <div class="projects-grid" id="projectsGrid">
+        <div class="post-state">프로젝트를 불러오는 중입니다.</div>
       </div>
     </section>
 
@@ -1265,6 +1388,83 @@
       .then(renderLinks)
       .catch(() => {
         renderLinks(defaultLinks);
+      });
+
+    const projectsGrid = document.getElementById("projectsGrid");
+    const defaultProjects = [
+      {
+        name: "Nginx-Starter",
+        url: "https://github.com/m161awm2/Nginx-Starter",
+        description: "Nginx 설정과 서버 운영을 연습하기 위한 저장소입니다.",
+        language: "Shell",
+        stars: 1
+      },
+      {
+        name: "NestCal",
+        url: "https://github.com/m161awm2/NestCal",
+        description: "모두의 캘린더인것이다!",
+        language: "TypeScript",
+        stars: 1
+      },
+      {
+        name: "Dogsori",
+        url: "https://github.com/m161awm2/Dogsori",
+        description: "JavaScript 기반 프로젝트 저장소입니다.",
+        language: "JavaScript",
+        stars: 1
+      },
+      {
+        name: "SQLi_ClientBypass_wargame",
+        url: "https://github.com/m161awm2/SQLi_ClientBypass_wargame",
+        description: "해당 사이트에 출제되었습니다",
+        language: "TypeScript",
+        stars: 1
+      }
+    ];
+
+    function renderProjects(items) {
+      if (!projectsGrid) return;
+
+      const projects = Array.isArray(items) && items.length > 0 ? items : defaultProjects;
+      const markup = projects.map((project) => {
+        const url = getSafeUrl(project.url);
+        if (!url) return "";
+
+        const name = escapeHtml(project.name || "Untitled Project");
+        const description = escapeHtml(project.description || "GitHub에서 프로젝트 내용을 확인해보세요.");
+        const language = escapeHtml(project.language || "GitHub");
+        const stars = Number.isFinite(Number(project.stars)) ? Number(project.stars) : 0;
+
+        return `
+          <a class="project-card" href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="project-top">
+                <h3>${name}</h3>
+                <span class="project-arrow">→</span>
+              </div>
+              <p>${description}</p>
+            </div>
+            <div class="project-meta">
+              <span>${language}</span>
+              <span>★ ${stars}</span>
+            </div>
+          </a>
+        `;
+      }).join("");
+
+      projectsGrid.innerHTML = markup || '<div class="post-state">표시할 프로젝트가 없습니다.</div>';
+    }
+
+    renderProjects(defaultProjects);
+
+    fetch("projects.json", { cache: "no-store" })
+      .then((response) => {
+        if (!response.ok) throw new Error("projects.json request failed");
+        return response.json();
+      })
+      .then(renderProjects)
+      .catch(() => {
+        renderProjects(defaultProjects);
       });
 
     const velogPosts = document.getElementById("velogPosts");
