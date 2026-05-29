@@ -4,139 +4,159 @@
     "link": "https://velog.io/@m161awm/Terraform-01",
     "pubDate": "Wed, 13 May 2026 15:52:41 GMT",
     "description": "IaC(infrastructure as code) 도구인 테라폼, 드디어 시작하게 될것같다. 기존엔 AWS에서 직접 마우스를 움직여 서비스를 만들고 운영했지만 이젠 인프라를 직접 키보드로 구축해줄것이다. 먼저 설치를 해주겠다. brew tap hashicorp/tap brew install hashicorp/tap/terraform 기본 형식은 이렇다는데 해석을 해봐야겠다. resource...",
-    "thumbnail": "https://velog.velcdn.com/images/m161awm/post/6044dafb-5d34-4da6-ace3-eca67a21f47a/image.png"
+    "thumbnail": "https://velog.velcdn.com/images/m161awm/post/6044dafb-5d34-4da6-ace3-eca67a21f47a/image.png",
+    "likes": 1
   },
   {
     "title": "(긴급!) 지금 절대로 코덱스를 다운로드 하지마세요 .",
     "link": "https://velog.io/@m161awm/%EA%B8%B4%EA%B8%89-%EC%A7%80%EA%B8%88-%EC%A0%88%EB%8C%80%EB%A1%9C-%EC%BD%94%EB%8D%B1%EC%8A%A4%EB%A5%BC-%EB%8B%A4%EC%9A%B4%EB%A1%9C%EB%93%9C-%ED%95%98%EC%A7%80%EB%A7%88%EC%84%B8%EC%9A%94",
     "pubDate": "Sun, 10 May 2026 08:19:42 GMT",
     "description": "이 글은 LLM과 함께 제작되었습니다 맥에서 코덱스를 다운로드 하려고 하던 중 바로 사파리에 codex를 검색하여 맨 위에 있는 사이트에 접속하였다 당연히 OpenAI Codex를 다운로드하는 것처럼 보였다. 하지만... 복사하고 터미널에 붙혀넣기전 갑가지 수상한 명령어를 보고 즉시 중단하였다. echo \"Downloading Codex: https://chatgpt.com/codex-app...",
-    "thumbnail": "https://velog.velcdn.com/images/m161awm/post/1525e177-5d7a-4881-8dda-2344f13076ce/image.png"
+    "thumbnail": "https://velog.velcdn.com/images/m161awm/post/1525e177-5d7a-4881-8dda-2344f13076ce/image.png",
+    "likes": 12
   },
   {
     "title": "NestJs를 활용해 S3에 이미지를 업로드하기",
     "link": "https://velog.io/@m161awm/NestJs%EB%A5%BC-%ED%99%9C%EC%9A%A9%ED%95%B4-S3%EC%97%90-%EC%9D%B4%EB%AF%B8%EC%A7%80%EB%A5%BC-%EC%97%85%EB%A1%9C%EB%93%9C%ED%95%98%EA%B8%B0",
     "pubDate": "Mon, 04 May 2026 12:20:47 GMT",
     "description": "S3란? AWS에 기본적인 서비스라고 하면 S3라는 서비스가 있다 Simple Storage Service S가 3개 있다고 해서 S3라고 부른다 S3에는 이미지 뿐만 아니라 프론트엔드나 다른것도 업로드 하고 보여줄수 있다. 다른 서비스와 달리 외부 에서 꺼내오고 넣는 방식으로 사용된다. 구축 먼저 인프라를 구축해주겠다. 편하려면 리전을 먼저 바꿔주자 VPC를 먼저 만들어주겠다. 이제 서브넷...",
-    "thumbnail": "https://velog.velcdn.com/images/m161awm/post/6fbc059a-7e92-4e8b-9afb-a02f119a405e/image.png"
+    "thumbnail": "https://velog.velcdn.com/images/m161awm/post/6fbc059a-7e92-4e8b-9afb-a02f119a405e/image.png",
+    "likes": 1
   },
   {
     "title": "AWS 탄력적 IP",
     "link": "https://velog.io/@m161awm/AWS-%ED%83%84%EB%A0%A5%EC%A0%81-IP",
     "pubDate": "Sat, 02 May 2026 15:22:41 GMT",
     "description": "EC2를 재부팅 하고 내 도메인 주소인 m161awm.kr로 들어가보니 찾지못하였다, 원인을 확인해보니 퍼블릭 IP주소가 바뀌어져있었다. 대체 왜 바꾼건지 궁금해서 찾아본 결과 현재 IPv4가 고갈되어서 이 IP주소를 사용 안하면 다른 서버에 넘겨주려고 인스턴스를 재부팅 한다면 공인 IP가 바뀌는것이다. 그래서 재부팅 해도 바뀌지 않게 해줄수 있는건 탄력적 IP이다. EC2 => 인스턴스 =...",
-    "thumbnail": "https://velog.velcdn.com/images/m161awm/post/281f3242-23fe-4454-a41f-3759cec98ae5/image.png"
+    "thumbnail": "https://velog.velcdn.com/images/m161awm/post/281f3242-23fe-4454-a41f-3759cec98ae5/image.png",
+    "likes": 0
   },
   {
     "title": "NestJs 02",
     "link": "https://velog.io/@m161awm/NestJs-02",
     "pubDate": "Sun, 26 Apr 2026 14:46:34 GMT",
     "description": "NestJs 지난회차에선 NestJs install, TS에 대해 알아보았다. 그러면 이제 써보고 실행해봐야한다. @Get(&#39;경로&#39;) // 비우면 &#39;/&#39;와 같다 함수명(){ return &quot;아무글&quot;; } 이런식으로 Get 요청을 받을수 있다. 플라스크와 비슷하다고도 볼수있다. 해당 경로로 가면 함수가 실행 그리고 타입스크립트니깐 함수명: strin...",
-    "thumbnail": "https://velog.velcdn.com/images/m161awm/post/384bbe54-fac7-4b96-a68b-1d299febc2e5/image.png"
+    "thumbnail": "https://velog.velcdn.com/images/m161awm/post/384bbe54-fac7-4b96-a68b-1d299febc2e5/image.png",
+    "likes": 1
   },
   {
     "title": "NestJs 01",
     "link": "https://velog.io/@m161awm/NestJs-01",
     "pubDate": "Sat, 25 Apr 2026 17:41:59 GMT",
     "description": "TS 어디서 많이 본 것 같은 이 단어는.. 타입스크립트 라고 불러야한다. 먼저 바로 NestJs를 들어가는것보단 이 프로그래밍 언어를 알아보는게 중요할것같다. NestJs 프레임워크는 타입스크립트로 작성된다. 타입스크립트란 Js와 문법은 아주 비슷하지만 큰 차이점인 타입을 표기해줘야한다.(변수,클래스,메서드, 스트럭트 등등) JS와 달리 안전하고 에러를 방지할 수 있다. 내가 자바스크립트를...",
-    "thumbnail": "https://velog.velcdn.com/images/m161awm/post/429a6216-173b-4be9-b002-70012fca480d/image.png"
+    "thumbnail": "https://velog.velcdn.com/images/m161awm/post/429a6216-173b-4be9-b002-70012fca480d/image.png",
+    "likes": 1
   },
   {
     "title": "AWS 안전한 인프라 구축하기",
     "link": "https://velog.io/@m161awm/AWS-%EC%95%88%EC%A0%84%ED%95%9C-%EC%9D%B8%ED%94%84%EB%9D%BC-%EA%B5%AC%EC%B6%95%ED%95%98%EA%B8%B0",
     "pubDate": "Thu, 23 Apr 2026 14:16:57 GMT",
     "description": "AWS 사용까지 1개월 조금 안됐지만 나도 대회 나가고싶어서 하게되었다. 기존까진 그냥 EC2를 만든 후 AWS가 자동으로 VPC만들고, RDS를 붙혀오는 방식이였다. 근데 이런식이면 누가 클라우드 엔지니어라고 인정을 하겠나 그래서 내가 할 수 있는 한 직접 클라우드 인프라를 구축해볼것이다. 첫번째로 VPC를 만드는거다, VPC는 스위치라고 볼 수 있을정도로 비슷한 부분이 많다, 서비스(기기...",
-    "thumbnail": "https://velog.velcdn.com/images/m161awm/post/7b7a6923-d5b9-4bf0-9c65-1aea41b3dca3/image.png"
+    "thumbnail": "https://velog.velcdn.com/images/m161awm/post/7b7a6923-d5b9-4bf0-9c65-1aea41b3dca3/image.png",
+    "likes": 1
   },
   {
     "title": "AWS Route 53, ELB, SSL 인증",
     "link": "https://velog.io/@m161awm/AWS-Route-53-ELB-SSL-%EC%9D%B8%EC%A6%9D",
     "pubDate": "Thu, 09 Apr 2026 11:21:43 GMT",
     "description": "Route 53 AWS의 DNS 서비스이다. DNS의 포트 번호가 53 이라 이 서비스의 이름을 Route 53이라고 지은것이다. 아키텍쳐(?)를 그려봤는데 이 퍼블릭 IP로 접근하면 내 엔진엑스 EC2 서버로 접근되면서 잘 작동 할거다. 근데 DNS도 포트번호가 있는데 이상하게 EC2 보안그룹 설정을 안해줘도 된다. 왜냐하면 DNS 프로그램은 EC2랑 접촉을 안하기 때문에 보안그룹 설정을...",
-    "thumbnail": "https://velog.velcdn.com/images/m161awm/post/ff8fb36f-d498-4c01-ab7f-8a4908c1a8ca/image.png"
+    "thumbnail": "https://velog.velcdn.com/images/m161awm/post/ff8fb36f-d498-4c01-ab7f-8a4908c1a8ca/image.png",
+    "likes": 0
   },
   {
     "title": "MySql",
     "link": "https://velog.io/@m161awm/MySql",
     "pubDate": "Fri, 27 Mar 2026 11:43:23 GMT",
     "description": "대표적인 DBMS중 하나인 MySql! 기존에 내가 쓰던 sqlite3와 비교가 안된다. 기존에 쓰던 sqlite3은 데이터베이스 파일을 내 컴퓨터에 파일로 저장하는 방식이였다면 mysql은 MySQL 서버에 데이터베이스를 만들고 접근하여 실행하는 방식이다. 그래서 mysql server 프로그램을 따로 깔고 유저와 비밀번호를 따로 만들어 접근해야한다. pip install pymysql 터...",
-    "thumbnail": "https://velog.velcdn.com/images/m161awm/post/c15aca33-d544-4d05-b181-de1759f2f6d1/image.png"
+    "thumbnail": "https://velog.velcdn.com/images/m161awm/post/c15aca33-d544-4d05-b181-de1759f2f6d1/image.png",
+    "likes": 1
   },
   {
     "title": "AWS RDS",
     "link": "https://velog.io/@m161awm/AWS-RDS",
     "pubDate": "Thu, 26 Mar 2026 12:51:18 GMT",
     "description": "데브옵스 분야의 핵심! RDS를 써보자!!!! 그 전에는 sqlite를 사용하여 DB가 EC2 안에 있었지만 이제 mysql로 바꿔서 RDS를 사용할수 있게되었다! 첫번째 고난은 그 전에 있었던 프레임워크 코드를 sqlite에서 mysql문법으로 바꾸는거였다, 아주 크게 다른건 아니지만 sqlite에선 conn = sqlite.connect(\"db이름\") 으로 쉽게 생성하고 연결하였지만 my...",
-    "thumbnail": "https://velog.velcdn.com/images/m161awm/post/f454eed7-1ad6-4f61-be87-fd20949b7590/image.png"
+    "thumbnail": "https://velog.velcdn.com/images/m161awm/post/f454eed7-1ad6-4f61-be87-fd20949b7590/image.png",
+    "likes": 1
   },
   {
     "title": "AWS EC2",
     "link": "https://velog.io/@m161awm/AWS-EC2-7nodr5nn",
     "pubDate": "Sat, 21 Mar 2026 06:09:44 GMT",
     "description": "웹 서버랑 플라스크 서버를 만들었을때 큰 문제 하나가 있었다 바로 컴퓨터를 끄거나 리눅스 터미널을 닫으면 즉시 서버가 닫힌다는거였다... 그래서 내가 하고싶었던게 24시간동안 서버를 운영하는거였다 AWS는 계정 활성화가 끝나야 EC2 같은 서비스를 정상적으로 사용할 수 있어서 가입이 완전히 끝나지 않으면 EC2 생성이 안된다, 아무튼 가입을 한 뒤 AWS EC2에서 가상 서버를 하나 만들었다...",
-    "thumbnail": "https://velog.velcdn.com/images/m161awm/post/2c55fe88-bf91-4a84-9ca2-e3a273c75bb5/image.png"
+    "thumbnail": "https://velog.velcdn.com/images/m161awm/post/2c55fe88-bf91-4a84-9ca2-e3a273c75bb5/image.png",
+    "likes": 0
   },
   {
     "title": "SQLite",
     "link": "https://velog.io/@m161awm/SQLite",
     "pubDate": "Wed, 18 Mar 2026 15:13:04 GMT",
     "description": "SQLite란, 파이썬이 기본으로 지원하는 모듈중 하나인 sql중 하나이다. Flask 이 모듈 하나때문에... 나도 왠지 모르게 풀스택 개발자가 되어가고있다, 조금 욕심 내서 바로 Mysql 배울까 생각했는데 배우다가 빡치면 바로 포기하는 내 성격때문에 기초적인 SQLite 을 배워야겠다. 그리고 웹개발 제대로 하려면 진짜 풀스택이 필수라 느꼈다, DB 배우는 이유가 빅데이터 분석기사 하라...",
-    "thumbnail": "https://velog.velcdn.com/images/m161awm/post/37d49981-80cc-47aa-8673-01d5be9b9507/image.png"
+    "thumbnail": "https://velog.velcdn.com/images/m161awm/post/37d49981-80cc-47aa-8673-01d5be9b9507/image.png",
+    "likes": 0
   },
   {
     "title": "git 02",
     "link": "https://velog.io/@m161awm/git-02",
     "pubDate": "Sun, 15 Mar 2026 14:31:29 GMT",
     "description": "이제 파일들을 GitHub에 직접 올릴 차례이다. git remote add origin https://github.com/아이디/레포.git 이렇게 레포를 생성 한 뒤에 깃허브로 직접 연결할 수 있다. git push 를 터미널에 입력하면, 인증을 한 뒤 레포에 저장사항이 올라간다! git pull 내 코드들이 오래돼서 코드를 GitHub에 있는 최신걸로 바꿔야 한다 하면 터미널에 작성하여...",
-    "thumbnail": ""
+    "thumbnail": "",
+    "likes": 0
   },
   {
     "title": "CI/CD 01",
     "link": "https://velog.io/@m161awm/CICD-01",
     "pubDate": "Sat, 14 Mar 2026 14:19:08 GMT",
     "description": "나도 슬슬 인프라로 넘어갈 수 있다고 느껴서, CI/CD를 배워보려고 한다. 먼저 그나마 쉬운 CI를 배워보겠다. CI CI는 git/github에서 참사를 방지하기 위해 사용한다. 코드를 잘못 썼는데 git commit -m \"수정\" 이러면 바로 코밋이 되어버리거나 깃허브에서 바로 푸시를 해버리면 좋지 않은 상황이 발생하게 되는데 CI 로 검사만 할 수 있다면 방지 할 수 있다! 그래서 어...",
-    "thumbnail": "https://velog.velcdn.com/images/m161awm/post/b673f16e-3f79-449a-b466-edbfbc73cafb/image.png"
+    "thumbnail": "https://velog.velcdn.com/images/m161awm/post/b673f16e-3f79-449a-b466-edbfbc73cafb/image.png",
+    "likes": 0
   },
   {
     "title": "flask",
     "link": "https://velog.io/@m161awm/flask",
     "pubDate": "Sat, 14 Mar 2026 12:26:22 GMT",
     "description": "FLASK 웹 개발을 한다면 꼭 배워야하는 파이썬의 모듈 FLASK 를 배워야겠다, 이런것도 안배우면 파이썬을 쓰는 의미가 없어진다. from flask import Flask app = Flask(-_name__) @app.route(\"/\") def home(): return \"안녕\" app.run(host=\"0.0.0.0\", port=5000) 줄마다 뭔 뜻인지 알아보자... from f...",
-    "thumbnail": "https://velog.velcdn.com/images/m161awm/post/a30eb5bf-3317-4f49-bad3-a0a4d741f8e9/image.png"
+    "thumbnail": "https://velog.velcdn.com/images/m161awm/post/a30eb5bf-3317-4f49-bad3-a0a4d741f8e9/image.png",
+    "likes": 0
   },
   {
     "title": "git 01",
     "link": "https://velog.io/@m161awm/git-01",
     "pubDate": "Thu, 12 Mar 2026 16:17:14 GMT",
     "description": "GIT 만약에 코드를 망쳐서 2일전으로 코드를 돌려놔야 할 때 우리는 맨날 메모장을 열어서 일마다 코드를 저장해두고 코드를 바꿔놔야 한다. 하지만 GIT 이 있다면 작업한 코드들을 기록하거나, 보관이 가능해서 되돌려 이런 귀찮은 과정을 안 해도 되고, 심지어 협업 했을때 누가 이 코드들을 망쳤는지 범일을 찾을 수 있다. 이름과 이메일 등록 GIT을 설치 한 뒤에 바탕화면에 아무 폴더 하나를...",
-    "thumbnail": "https://velog.velcdn.com/images/m161awm/post/6e70152d-c8b5-4c08-bdbb-0d420b37543b/image.png"
+    "thumbnail": "https://velog.velcdn.com/images/m161awm/post/6e70152d-c8b5-4c08-bdbb-0d420b37543b/image.png",
+    "likes": 1
   },
   {
     "title": "도커 배우기 03",
     "link": "https://velog.io/@m161awm/%EB%8F%84%EC%BB%A4-%EB%B0%B0%EC%9A%B0%EA%B8%B0-03",
     "pubDate": "Wed, 11 Mar 2026 16:32:02 GMT",
     "description": "docker ps printHelloworld.py import numpy print(\"Hello world!\") 해당 파이썬 파일을 만들면 도커파일은 FROM python:alpine WORKDIR /app COPY . . RUN pip install numpy CMD [\"python\",\"printHellowolrd.py\"] 이런식으로 작성한다. 그 다음 터미널에서 해당 파일 위치로 들어가...",
-    "thumbnail": "https://velog.velcdn.com/images/m161awm/post/9c3f053a-2d46-4ddf-a9d8-5d3996703ba0/image.png"
+    "thumbnail": "https://velog.velcdn.com/images/m161awm/post/9c3f053a-2d46-4ddf-a9d8-5d3996703ba0/image.png",
+    "likes": 0
   },
   {
     "title": "도커 배우기 02",
     "link": "https://velog.io/@m161awm/%EB%8F%84%EC%BB%A4-%EB%B0%B0%EC%9A%B0%EA%B8%B0-02",
     "pubDate": "Tue, 10 Mar 2026 17:03:39 GMT",
     "description": "도커를 잘 사용하기 위해선 정의가 제대로 필요하다. 도커란? 웹 서버를 만들어서 배포하려는데 아마존 웹 서비스 같은곳으로 코드를 옮기고 환경설정하고 라이브러리 옮기는걸 반복하는건 당연히 귀찮다. 그래서 도커를 사용하여 옮기기 시작하였다. 도커는 OS, 환경설정의 영향도 받지 않기 때문에 협업하기도 편하다. 그래서 많은 사람들이 도커를 사용하기 시작하였다. 예시를 들면, const expres...",
-    "thumbnail": "https://velog.velcdn.com/images/m161awm/post/4b1a0549-4063-4cd9-80aa-0aa9184b1c9a/image.png"
+    "thumbnail": "https://velog.velcdn.com/images/m161awm/post/4b1a0549-4063-4cd9-80aa-0aa9184b1c9a/image.png",
+    "likes": 1
   },
   {
     "title": "(학교) 웹 개발 실습 01",
     "link": "https://velog.io/@m161awm/%ED%95%99%EA%B5%90-%EC%9B%B9-%EA%B0%9C%EB%B0%9C-%EC%8B%A4%EC%8A%B5-01",
     "pubDate": "Tue, 10 Mar 2026 01:10:07 GMT",
     "description": "HTML 태그 줄바꿈 태그 &lt;br&gt; 로 줄바꿈을 가능하다. 예 *&lt;br&gt;**&lt;br&gt;***&lt;br&gt;****&lt;br&gt;***** output * ** *** **** ***** 위아래 여백 추가 태그 &lt;p&gt; 해당 태그를 사용하여 문단을 바꿀수 있다. 한칸의 여백이 발생한다, 가독성을 위해 사용할수 있는 태그중 하나이다 예 *&lt;br&...",
-    "thumbnail": ""
+    "thumbnail": "",
+    "likes": 1
   },
   {
     "title": "Shell script",
     "link": "https://velog.io/@m161awm/Shell-script",
     "pubDate": "Mon, 09 Mar 2026 16:44:45 GMT",
     "description": "리눅스를 쓴다고 하면 무조건 배워야하는 쉘 스크립트, bash를 배워보자. 쉘 스크립트를 왜 배워야할까? 마이크로소프트의 윈도우 11 운영때문에 리눅스는 IT분야의 사람이면 필수로 배워야한다, 클라우드와 인프라가 중심이 되는 현대 IT 환경에서 안정성, 보안, 제어권을 확보하기 위해 리눅스 학습은 필수적이다. 우리가 리눅스를 사용할 때에 반복해야하는 과정이 있다. 맨날 그 명령어만 치면 너무...",
-    "thumbnail": "https://velog.velcdn.com/images/m161awm/post/5adce523-b8b1-455f-89eb-10ba2b59a80a/image.png"
+    "thumbnail": "https://velog.velcdn.com/images/m161awm/post/5adce523-b8b1-455f-89eb-10ba2b59a80a/image.png",
+    "likes": 1
   }
 ]

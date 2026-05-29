@@ -783,12 +783,20 @@
     }
 
     .post-more {
-      display: inline-flex;
+      display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 12px;
       color: var(--blue);
       font-size: 14px;
+      font-weight: 1000;
+    }
+
+    .post-likes {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #fb7185;
       font-weight: 1000;
     }
 
@@ -1526,6 +1534,7 @@
         const date = formatPostDate(post.pubDate);
         const link = getPostLink(post.link);
         const thumbnail = getPostThumbnail(post.thumbnail);
+        const likes = Number.isFinite(Number(post.likes)) ? Number(post.likes) : 0;
         const thumbMarkup = thumbnail
           ? `<img class="post-thumb" src="${escapeHtml(thumbnail)}" alt="" loading="lazy">`
           : "";
@@ -1539,7 +1548,10 @@
               <h3>${escapeHtml(title)}</h3>
               <p>${escapeHtml(description)}</p>
             </div>
-            <span class="post-more">원문 보러가기 <strong>→</strong></span>
+            <span class="post-more">
+              <span class="post-likes">♥ ${likes}</span>
+              <span>원문 보러가기 <strong>→</strong></span>
+            </span>
           </a>
         `;
       }).join("");

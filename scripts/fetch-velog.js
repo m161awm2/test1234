@@ -29,6 +29,26 @@ function truncateText(value, maxLength = 220) {
   return text.length > maxLength ? `${text.slice(0, maxLength).trim()}...` : text;
 }
 
+async function fetchPostLikes(link) {
+  if (!link) return 0;
+
+  try {
+    const response = await fetch(link, {
+      headers: {
+        "User-Agent": "m161awm2-test1234-github-pages/1.0"
+      }
+    });
+
+    if (!response.ok) return 0;
+
+    const html = await response.text();
+    const match = html.match(/"likes"\s*:\s*(\d+)/);
+    return match ? Number(match[1]) : 0;
+  } catch {
+    return 0;
+  }
+}
+
 async function fetchVelogPosts() {
   const response = await fetch(VELOG_RSS_URL, {
     headers: {
@@ -48,13 +68,19 @@ async function fetchVelogPosts() {
   const feed = parser.parse(xml);
   const items = asArray(feed?.rss?.channel?.item);
 
-  return items.map((item) => ({
+  const posts = items.map((item) => ({
     title: cleanText(item.title),
     link: String(item.link || "").trim(),
     pubDate: String(item.pubDate || "").trim(),
     description: truncateText(item.description),
-    thumbnail: extractFirstImage(item.description)
+    thumbnail: extractFirstImage(item.description),
+    likes: 0
   }));
+
+  return Promise.all(posts.map(async (post) => ({
+    ...post,
+    likes: await fetchPostLikes(post.link)
+  })));
 }
 
 async function main() {
