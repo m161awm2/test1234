@@ -1,5 +1,13 @@
 [
   {
+    "title": "S3와 클라우드 프론트를 활용해 정적 웹페이지를 배포하기",
+    "link": "https://velog.io/@m161awm/S3%EC%99%80-%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C-%ED%94%84%EB%A1%A0%ED%8A%B8%EB%A5%BC-%ED%99%9C%EC%9A%A9%ED%95%B4-%EC%A0%95%EC%A0%81-%EC%9B%B9%ED%8E%98%EC%9D%B4%EC%A7%80%EB%A5%BC-%EB%B0%B0%ED%8F%AC%ED%95%98%EA%B8%B0",
+    "pubDate": "Tue, 02 Jun 2026 14:55:26 GMT",
+    "description": "전의 나는 깃허브에서 무료로 정적 호스팅을 해주길래 배포하고 써왔다. 하지만 큰 문제는 클라우드 프론트를 쓰는게 더 멋있다는것이다. 그래서 이번회차에 해볼건 바로 S3와 클라우드 프론트 서비스를 활용하여 배포까지 하는 과정을 해보겠다. 그전 먼저 두 서비스가 뭔지를 알아야한다. 자세한 내용은 해당 노션을 참조 바란다, 간단하게 설명해주자면 Simple Strage Service S3는 버킷이...",
+    "thumbnail": "https://velog.velcdn.com/images/m161awm/post/5cd608e6-2c5c-4688-91f2-9bc0d39e55f3/image.png",
+    "likes": 0
+  },
+  {
     "title": "Terraform 01",
     "link": "https://velog.io/@m161awm/Terraform-01",
     "pubDate": "Wed, 13 May 2026 15:52:41 GMT",
@@ -149,14 +157,6 @@
     "pubDate": "Tue, 10 Mar 2026 01:10:07 GMT",
     "description": "HTML 태그 줄바꿈 태그 &lt;br&gt; 로 줄바꿈을 가능하다. 예 *&lt;br&gt;**&lt;br&gt;***&lt;br&gt;****&lt;br&gt;***** output * ** *** **** ***** 위아래 여백 추가 태그 &lt;p&gt; 해당 태그를 사용하여 문단을 바꿀수 있다. 한칸의 여백이 발생한다, 가독성을 위해 사용할수 있는 태그중 하나이다 예 *&lt;br&...",
     "thumbnail": "",
-    "likes": 1
-  },
-  {
-    "title": "Shell script",
-    "link": "https://velog.io/@m161awm/Shell-script",
-    "pubDate": "Mon, 09 Mar 2026 16:44:45 GMT",
-    "description": "리눅스를 쓴다고 하면 무조건 배워야하는 쉘 스크립트, bash를 배워보자. 쉘 스크립트를 왜 배워야할까? 마이크로소프트의 윈도우 11 운영때문에 리눅스는 IT분야의 사람이면 필수로 배워야한다, 클라우드와 인프라가 중심이 되는 현대 IT 환경에서 안정성, 보안, 제어권을 확보하기 위해 리눅스 학습은 필수적이다. 우리가 리눅스를 사용할 때에 반복해야하는 과정이 있다. 맨날 그 명령어만 치면 너무...",
-    "thumbnail": "https://velog.velcdn.com/images/m161awm/post/5adce523-b8b1-455f-89eb-10ba2b59a80a/image.png",
     "likes": 1
   }
 ]
