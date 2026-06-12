@@ -1,5 +1,13 @@
 [
   {
+    "title": "AWS SSM으로 프라이빗 서브넷에 있는 EC2에 들어가보기",
+    "link": "https://velog.io/@m161awm/AWS-SSM-%EC%A0%95%EC%B1%85%EC%9C%BC%EB%A1%9C-%ED%94%84%EB%9D%BC%EC%9D%B4%EB%B9%97-%EC%84%9C%EB%B8%8C%EB%84%B7%EC%97%90-%EC%9E%88%EB%8A%94-EC2%EC%97%90-%EB%93%A4%EC%96%B4%EA%B0%80%EB%B3%B4%EA%B8%B0",
+    "pubDate": "Fri, 12 Jun 2026 13:08:05 GMT",
+    "description": "기존의 바스티온 호스트를 만들어 ssh로 접근하는 방식은 귀찮고 구시대적이다. 그래서 나온 서비스가 바로 AWS Systems Manager, SSM이다. 근데 왜 ASM이 아니라 SSM이냐 하면 원래 이름이 Simple Systems Manager였다고 한다. 왜 해당 방식을 더 선호하게 되었냐면 바스천 호스트를 만들었을때 비용도 있고 꽤 많은 문제점이 있어서 이제 SSM을 활용해서 ec2...",
+    "thumbnail": "https://velog.velcdn.com/images/m161awm/post/422fbfc7-0ef0-4046-8302-de52380755c4/image.png",
+    "likes": 0
+  },
+  {
     "title": "S3와 클라우드 프론트를 활용해 정적 웹페이지를 배포하기",
     "link": "https://velog.io/@m161awm/S3%EC%99%80-%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C-%ED%94%84%EB%A1%A0%ED%8A%B8%EB%A5%BC-%ED%99%9C%EC%9A%A9%ED%95%B4-%EC%A0%95%EC%A0%81-%EC%9B%B9%ED%8E%98%EC%9D%B4%EC%A7%80%EB%A5%BC-%EB%B0%B0%ED%8F%AC%ED%95%98%EA%B8%B0",
     "pubDate": "Tue, 02 Jun 2026 14:55:26 GMT",
@@ -149,14 +157,6 @@
     "pubDate": "Tue, 10 Mar 2026 17:03:39 GMT",
     "description": "도커를 잘 사용하기 위해선 정의가 제대로 필요하다. 도커란? 웹 서버를 만들어서 배포하려는데 아마존 웹 서비스 같은곳으로 코드를 옮기고 환경설정하고 라이브러리 옮기는걸 반복하는건 당연히 귀찮다. 그래서 도커를 사용하여 옮기기 시작하였다. 도커는 OS, 환경설정의 영향도 받지 않기 때문에 협업하기도 편하다. 그래서 많은 사람들이 도커를 사용하기 시작하였다. 예시를 들면, const expres...",
     "thumbnail": "https://velog.velcdn.com/images/m161awm/post/4b1a0549-4063-4cd9-80aa-0aa9184b1c9a/image.png",
-    "likes": 1
-  },
-  {
-    "title": "(학교) 웹 개발 실습 01",
-    "link": "https://velog.io/@m161awm/%ED%95%99%EA%B5%90-%EC%9B%B9-%EA%B0%9C%EB%B0%9C-%EC%8B%A4%EC%8A%B5-01",
-    "pubDate": "Tue, 10 Mar 2026 01:10:07 GMT",
-    "description": "HTML 태그 줄바꿈 태그 &lt;br&gt; 로 줄바꿈을 가능하다. 예 *&lt;br&gt;**&lt;br&gt;***&lt;br&gt;****&lt;br&gt;***** output * ** *** **** ***** 위아래 여백 추가 태그 &lt;p&gt; 해당 태그를 사용하여 문단을 바꿀수 있다. 한칸의 여백이 발생한다, 가독성을 위해 사용할수 있는 태그중 하나이다 예 *&lt;br&...",
-    "thumbnail": "",
     "likes": 1
   }
 ]
