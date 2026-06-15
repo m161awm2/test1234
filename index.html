@@ -178,13 +178,14 @@
       display: inline-flex;
       align-items: baseline;
       gap: 0.18em;
+      white-space: nowrap;
       letter-spacing: 0;
       line-height: 1;
       animation: heroRise 0.8s ease both;
     }
 
     .hero-title-text {
-      font-size: 100px;
+      font-size: clamp(52px, 6vw, 82px);
       background: linear-gradient(90deg, white, #7dd3fc, #c4b5fd, white);
       background-size: 220% 100%;
       -webkit-background-clip: text;
