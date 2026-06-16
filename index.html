@@ -435,6 +435,235 @@
       border-radius: 30px;
       box-shadow: 0 30px 100px rgba(0, 0, 0, 0.5);
       overflow: hidden;
+    }
+
+    .github-banner {
+      position: relative;
+      height: 150px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 20% 30%, rgba(56, 189, 248, 0.32), transparent 28%),
+        radial-gradient(circle at 80% 20%, rgba(99, 102, 241, 0.26), transparent 30%),
+        linear-gradient(135deg, #020617, #0f172a 45%, #1e3a8a);
+    }
+
+    .github-banner::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      background: linear-gradient(to bottom, rgba(2, 6, 23, 0.04), rgba(2, 6, 23, 0.76));
+      pointer-events: none;
+    }
+
+    .floating-box {
+      position: absolute;
+      z-index: 1;
+      display: block;
+      width: 38px;
+      height: 38px;
+      border: 1px solid rgba(125, 211, 252, 0.42);
+      border-radius: 10px;
+      background: rgba(56, 189, 248, 0.11);
+      box-shadow:
+        0 0 24px rgba(56, 189, 248, 0.2),
+        inset 0 0 18px rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(8px);
+      animation: floatBox 8s ease-in-out infinite;
+    }
+
+    .floating-shape {
+      position: absolute;
+      z-index: 1;
+      border: 1px solid rgba(186, 230, 253, 0.28);
+      background: rgba(15, 23, 42, 0.24);
+      box-shadow:
+        0 0 22px rgba(59, 130, 246, 0.18),
+        inset 0 0 16px rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      animation: floatTech 10s ease-in-out infinite;
+    }
+
+    .floating-shape::before,
+    .floating-shape::after {
+      content: "";
+      position: absolute;
+      display: block;
+    }
+
+    .box-1 {
+      top: 22px;
+      left: 12%;
+      width: 28px;
+      height: 28px;
+      animation-delay: 0s;
+    }
+
+    .box-2 {
+      top: 62px;
+      left: 34%;
+      width: 44px;
+      height: 44px;
+      animation-delay: -1.5s;
+    }
+
+    .box-3 {
+      top: 18px;
+      right: 24%;
+      width: 32px;
+      height: 32px;
+      animation-delay: -3s;
+    }
+
+    .box-4 {
+      right: 12%;
+      bottom: 20px;
+      width: 50px;
+      height: 50px;
+      animation-delay: -2s;
+    }
+
+    .box-5 {
+      bottom: 34px;
+      left: 58%;
+      width: 24px;
+      height: 24px;
+      animation-delay: -4s;
+    }
+
+    .shape-cloud {
+      top: 28px;
+      left: 47%;
+      width: 62px;
+      height: 28px;
+      border-radius: 999px;
+      background: rgba(125, 211, 252, 0.14);
+      animation-delay: -1s;
+    }
+
+    .shape-cloud::before {
+      left: 12px;
+      bottom: 12px;
+      width: 24px;
+      height: 24px;
+      border: 1px solid rgba(186, 230, 253, 0.24);
+      border-radius: 50%;
+      background: rgba(125, 211, 252, 0.14);
+      box-shadow: 20px 4px 0 rgba(125, 211, 252, 0.1);
+    }
+
+    .shape-server {
+      right: 34%;
+      bottom: 26px;
+      width: 46px;
+      height: 38px;
+      border-radius: 10px;
+      background:
+        linear-gradient(to bottom, transparent 31%, rgba(186, 230, 253, 0.28) 32%, rgba(186, 230, 253, 0.28) 34%, transparent 35%),
+        linear-gradient(to bottom, transparent 64%, rgba(186, 230, 253, 0.24) 65%, rgba(186, 230, 253, 0.24) 67%, transparent 68%),
+        rgba(15, 23, 42, 0.3);
+      animation-delay: -3.5s;
+    }
+
+    .shape-server::before {
+      top: 9px;
+      right: 8px;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: rgba(125, 211, 252, 0.6);
+      box-shadow:
+        0 12px 0 rgba(125, 211, 252, 0.42),
+        0 24px 0 rgba(125, 211, 252, 0.5);
+    }
+
+    .shape-chip {
+      top: 74px;
+      right: 18%;
+      width: 36px;
+      height: 36px;
+      border-radius: 9px;
+      background: rgba(56, 189, 248, 0.1);
+      animation-delay: -5s;
+    }
+
+    .shape-chip::before {
+      inset: 8px;
+      border: 1px solid rgba(186, 230, 253, 0.32);
+      border-radius: 5px;
+      background: rgba(15, 23, 42, 0.22);
+    }
+
+    .shape-chip::after {
+      top: 7px;
+      left: -5px;
+      width: 4px;
+      height: 22px;
+      background:
+        linear-gradient(to bottom, rgba(186, 230, 253, 0.42) 0 3px, transparent 3px 7px) repeat-y;
+      background-size: 4px 7px;
+      box-shadow: 42px 0 0 rgba(186, 230, 253, 0.28);
+    }
+
+    .shape-nodes {
+      bottom: 24px;
+      left: 18%;
+      width: 48px;
+      height: 34px;
+      border: 0;
+      background:
+        linear-gradient(28deg, transparent 45%, rgba(186, 230, 253, 0.32) 46%, rgba(186, 230, 253, 0.32) 52%, transparent 53%),
+        linear-gradient(150deg, transparent 44%, rgba(186, 230, 253, 0.24) 45%, rgba(186, 230, 253, 0.24) 51%, transparent 52%);
+      box-shadow: none;
+      backdrop-filter: none;
+      animation-delay: -6.5s;
+    }
+
+    .shape-nodes::before {
+      top: 2px;
+      left: 4px;
+      width: 12px;
+      height: 12px;
+      border: 1px solid rgba(186, 230, 253, 0.36);
+      border-radius: 50%;
+      background: rgba(56, 189, 248, 0.16);
+      box-shadow:
+        28px 4px 0 rgba(56, 189, 248, 0.12),
+        16px 20px 0 rgba(56, 189, 248, 0.14);
+    }
+
+    @keyframes floatBox {
+      0%, 100% {
+        transform: translate3d(0, 0, 0) rotate(10deg) scale(1);
+        opacity: 0.38;
+      }
+
+      50% {
+        transform: translate3d(18px, -16px, 0) rotate(28deg) scale(1.08);
+        opacity: 0.72;
+      }
+    }
+
+    @keyframes floatTech {
+      0%, 100% {
+        transform: translate3d(0, 0, 0) rotate(-3deg);
+        opacity: 0.34;
+      }
+
+      50% {
+        transform: translate3d(-14px, -12px, 0) rotate(4deg);
+        opacity: 0.68;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .floating-box,
+      .floating-shape {
+        animation: none;
+      }
+    }
+
+    .github-profile-body {
       padding: 28px;
     }
 
@@ -543,6 +772,7 @@
       color: #cbd5e1;
       font-weight: 800;
       line-height: 1.6;
+      padding: 28px;
     }
 
     .github-activity-card {
@@ -1336,8 +1566,90 @@
       }
 
       .github-profile {
-        padding: 22px;
         border-radius: 24px;
+      }
+
+      .github-banner {
+        height: 118px;
+      }
+
+      .floating-box {
+        border-radius: 8px;
+      }
+
+      .shape-cloud {
+        left: 42%;
+        width: 50px;
+        height: 24px;
+      }
+
+      .shape-cloud::before {
+        width: 20px;
+        height: 20px;
+        box-shadow: 16px 4px 0 rgba(125, 211, 252, 0.1);
+      }
+
+      .shape-server {
+        right: 28%;
+        width: 38px;
+        height: 32px;
+      }
+
+      .shape-chip {
+        top: 68px;
+        right: 10%;
+        width: 30px;
+        height: 30px;
+      }
+
+      .shape-chip::after {
+        height: 18px;
+        box-shadow: 36px 0 0 rgba(186, 230, 253, 0.28);
+      }
+
+      .shape-nodes {
+        left: 12%;
+        width: 38px;
+        height: 28px;
+      }
+
+      .shape-nodes::before {
+        width: 10px;
+        height: 10px;
+        box-shadow:
+          22px 4px 0 rgba(56, 189, 248, 0.12),
+          13px 16px 0 rgba(56, 189, 248, 0.14);
+      }
+
+      .box-1 {
+        width: 22px;
+        height: 22px;
+      }
+
+      .box-2 {
+        top: 54px;
+        width: 34px;
+        height: 34px;
+      }
+
+      .box-3 {
+        width: 26px;
+        height: 26px;
+      }
+
+      .box-4 {
+        width: 38px;
+        height: 38px;
+      }
+
+      .box-5 {
+        width: 20px;
+        height: 20px;
+      }
+
+      .github-profile-body,
+      .github-state {
+        padding: 22px;
       }
 
       .github-head {
@@ -1663,41 +1975,54 @@
       }
 
       githubProfile.innerHTML = `
-        <div class="github-head">
-          <img class="github-avatar" src="${escapeHtml(avatar)}" alt="${escapeHtml(login)} GitHub avatar" />
-          <div>
-            <div class="github-title-row">
-              <span class="github-badge" aria-hidden="true">
-                <svg class="github-icon" viewBox="0 0 16 16">
-                  <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82A7.6 7.6 0 0 1 8 3.86c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z" />
-                </svg>
-              </span>
-              <b class="github-name">${escapeHtml(name)}</b>
+        <div class="github-banner" aria-hidden="true">
+          <span class="floating-box box-1"></span>
+          <span class="floating-box box-2"></span>
+          <span class="floating-box box-3"></span>
+          <span class="floating-box box-4"></span>
+          <span class="floating-box box-5"></span>
+          <span class="floating-shape shape-cloud"></span>
+          <span class="floating-shape shape-server"></span>
+          <span class="floating-shape shape-chip"></span>
+          <span class="floating-shape shape-nodes"></span>
+        </div>
+        <div class="github-profile-body">
+          <div class="github-head">
+            <img class="github-avatar" src="${escapeHtml(avatar)}" alt="${escapeHtml(login)} GitHub avatar" />
+            <div>
+              <div class="github-title-row">
+                <span class="github-badge" aria-hidden="true">
+                  <svg class="github-icon" viewBox="0 0 16 16">
+                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82A7.6 7.6 0 0 1 8 3.86c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z" />
+                  </svg>
+                </span>
+                <b class="github-name">${escapeHtml(name)}</b>
+              </div>
+              <span class="github-login">@${escapeHtml(login)}</span>
             </div>
-            <span class="github-login">@${escapeHtml(login)}</span>
           </div>
+          <p class="github-bio">${escapeHtml(bio)}</p>
+          <div class="github-stats" aria-label="GitHub profile stats">
+            <div class="github-stat">
+              <b>${Number(profile.public_repos || 0).toLocaleString()}</b>
+              <span>Repositories</span>
+            </div>
+            <div class="github-stat">
+              <b>${Number(profile.followers || 0).toLocaleString()}</b>
+              <span>Followers</span>
+            </div>
+            <div class="github-stat">
+              <b>${Number(profile.following || 0).toLocaleString()}</b>
+              <span>Following</span>
+            </div>
+          </div>
+          <div class="github-meta">
+            ${location}
+            ${blog}
+            <span>Updated from GitHub API</span>
+          </div>
+          <a class="btn main github-link" href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">GitHub Profile</a>
         </div>
-        <p class="github-bio">${escapeHtml(bio)}</p>
-        <div class="github-stats" aria-label="GitHub profile stats">
-          <div class="github-stat">
-            <b>${Number(profile.public_repos || 0).toLocaleString()}</b>
-            <span>Repositories</span>
-          </div>
-          <div class="github-stat">
-            <b>${Number(profile.followers || 0).toLocaleString()}</b>
-            <span>Followers</span>
-          </div>
-          <div class="github-stat">
-            <b>${Number(profile.following || 0).toLocaleString()}</b>
-            <span>Following</span>
-          </div>
-        </div>
-        <div class="github-meta">
-          ${location}
-          ${blog}
-          <span>Updated from GitHub API</span>
-        </div>
-        <a class="btn main github-link" href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">GitHub Profile</a>
       `;
     }
 
