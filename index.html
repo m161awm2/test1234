@@ -919,6 +919,21 @@
       display: block;
     }
 
+    .stack-mark {
+      display: inline-grid;
+      place-items: center;
+      min-width: 28px;
+      height: 22px;
+      padding: 0 6px;
+      border-radius: 6px;
+      background: rgba(255, 153, 0, 0.14);
+      color: #ff9900;
+      border: 1px solid rgba(255, 153, 0, 0.34);
+      font-size: 0.72rem;
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
     .node-graph-panel {
       display: grid;
       grid-template-columns: minmax(0, 1.3fr) minmax(280px, 0.7fr);
@@ -1768,7 +1783,6 @@
         </div>
 
         <div class="actions" id="heroLinks">
-          <a class="btn main" href="http://3.24.212.144:3000/" target="_blank" rel="noopener noreferrer">🚀 Live NestJS Server</a>
           <a class="btn" href="https://velog.io/@m161awm/posts" target="_blank" rel="noopener noreferrer">✍️ Velog Tech Blog</a>
           <a class="btn" href="https://github.com/m161awm2" target="_blank" rel="noopener noreferrer">🧩 GitHub Profile</a>
         </div>
@@ -1809,7 +1823,7 @@
           <h3>Cloud & Infrastructure</h3>
           <div class="stack-badges">
             <span class="stack-badge"><img src="https://cdn.simpleicons.org/kubernetes/326CE5" alt="" loading="lazy">Kubernetes</span>
-            <span class="stack-badge"><img src="https://cdn.simpleicons.org/amazonwebservices/FF9900" alt="" loading="lazy">AWS</span>
+            <span class="stack-badge"><span class="stack-mark">AWS</span>AWS</span>
             <span class="stack-badge"><img src="https://cdn.simpleicons.org/linux/FCC624" alt="" loading="lazy">Linux</span>
             <span class="stack-badge"><img src="https://cdn.simpleicons.org/docker/2496ED" alt="" loading="lazy">Docker</span>
             <span class="stack-badge"><img src="https://cdn.simpleicons.org/nginx/009639" alt="" loading="lazy">Nginx</span>
@@ -1845,7 +1859,7 @@
         <div class="stack-category">
           <h3>Learning</h3>
           <div class="stack-badges">
-            <span class="stack-badge"><img src="https://cdn.simpleicons.org/amazoneks/FF9900" alt="" loading="lazy">EKS</span>
+            <span class="stack-badge"><span class="stack-mark">EKS</span>EKS</span>
             <span class="stack-badge"><img src="https://cdn.simpleicons.org/argo/EF7B4D" alt="" loading="lazy">Argo CD</span>
             <span class="stack-badge"><img src="https://cdn.simpleicons.org/terraform/844FBA" alt="" loading="lazy">Terraform</span>
           </div>
@@ -2524,12 +2538,6 @@
     const heroLinks = document.getElementById("heroLinks");
     const linksList = document.getElementById("linksList");
     const defaultLinks = [
-      {
-        title: "🚀 Live NestJS Server",
-        shortTitle: "🚀 Live Server",
-        url: "http://3.24.212.144:3000/",
-        description: "http://3.24.212.144:3000/"
-      },
       {
         title: "✍️ Velog Tech Blog",
         shortTitle: "✍️ Velog",
