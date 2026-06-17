@@ -2,7 +2,7 @@ name: Update Velog posts
 
 on:
   schedule:
-    - cron: "0 18 * * *"
+    - cron: "*/30 * * * *"
   workflow_dispatch:
 
 permissions:
@@ -25,18 +25,18 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Fetch Velog RSS
+      - name: Fetch Velog RSS and profile
         run: npm run fetch:velog
 
-      - name: Commit posts.json
+      - name: Commit Velog data
         run: |
-          if git diff --quiet posts.json; then
-            echo "No Velog post changes."
+          if git diff --quiet posts.json velog-profile.json; then
+            echo "No Velog data changes."
             exit 0
           fi
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add posts.json
-          git commit -m "Update Velog posts"
+          git add posts.json velog-profile.json
+          git commit -m "Update Velog data"
           git push

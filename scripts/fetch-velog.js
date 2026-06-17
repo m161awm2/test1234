@@ -4,6 +4,8 @@ const { XMLParser } = require("fast-xml-parser");
 
 const VELOG_RSS_URL = "https://v2.velog.io/rss/m161awm";
 const OUTPUT_PATH = path.join(__dirname, "..", "posts.json");
+const PROFILE_OUTPUT_PATH = path.join(__dirname, "..", "velog-profile.json");
+const VELOG_PROFILE_URL = "https://velog.io/@m161awm";
 
 function asArray(value) {
   if (!value) return [];
@@ -66,7 +68,8 @@ async function fetchVelogPosts() {
     trimValues: true
   });
   const feed = parser.parse(xml);
-  const items = asArray(feed?.rss?.channel?.item);
+  const channel = feed?.rss?.channel || {};
+  const items = asArray(channel.item);
 
   const posts = items.map((item) => ({
     title: cleanText(item.title),
@@ -77,16 +80,45 @@ async function fetchVelogPosts() {
     likes: 0
   }));
 
-  return Promise.all(posts.map(async (post) => ({
-    ...post,
-    likes: await fetchPostLikes(post.link)
-  })));
+  return {
+    channel,
+    posts: await Promise.all(posts.map(async (post) => ({
+      ...post,
+      likes: await fetchPostLikes(post.link)
+    })))
+  };
+}
+
+function buildVelogProfile(channel, posts) {
+  const latestPost = posts[0] || {};
+  const totalLikes = posts.reduce((sum, post) => sum + (Number(post.likes) || 0), 0);
+
+  return {
+    username: "m161awm",
+    title: cleanText(channel.title) || "m161awm.log",
+    description: cleanText(channel.description) || "Velog에 기록한 개발 학습 로그입니다.",
+    url: VELOG_PROFILE_URL,
+    rssUrl: VELOG_RSS_URL,
+    postCount: posts.length,
+    totalLikes,
+    latestPost: {
+      title: latestPost.title || "",
+      link: latestPost.link || VELOG_PROFILE_URL,
+      pubDate: latestPost.pubDate || ""
+    },
+    updatedAt: latestPost.pubDate || cleanText(channel.lastBuildDate) || ""
+  };
 }
 
 async function main() {
-  const posts = await fetchVelogPosts();
+  const { channel, posts } = await fetchVelogPosts();
+  const profile = buildVelogProfile(channel, posts);
+
   await fs.writeFile(OUTPUT_PATH, `${JSON.stringify(posts, null, 2)}\n`, "utf8");
+  await fs.writeFile(PROFILE_OUTPUT_PATH, `${JSON.stringify(profile, null, 2)}\n`, "utf8");
+
   console.log(`Wrote ${posts.length} Velog posts to ${OUTPUT_PATH}`);
+  console.log(`Wrote Velog profile to ${PROFILE_OUTPUT_PATH}`);
 }
 
 main().catch((error) => {
