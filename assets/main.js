@@ -636,7 +636,8 @@ function setActiveGraphNode(nodeId) {
     <h3>${escapeHtml(activeNode.label)}</h3>
     <p class="detail-category">${escapeHtml(activeNode.category)}</p>
     <p class="detail-description">${escapeHtml(activeNode.description)}</p>
-    <div class="detail-tags">
+    <div class="detail-tags" aria-label="Related keywords">
+      <span class="detail-tags-label">Related keywords</span>
       ${activeNode.tags.map((tag) => `<span>${escapeHtml(tag)}</span>`).join("")}
     </div>
   `;
