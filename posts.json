@@ -53,7 +53,7 @@
     "pubDate": "Sun, 26 Apr 2026 14:46:34 GMT",
     "description": "NestJs 지난회차에선 NestJs install, TS에 대해 알아보았다. 그러면 이제 써보고 실행해봐야한다. @Get(&#39;경로&#39;) // 비우면 &#39;/&#39;와 같다 함수명(){ return &quot;아무글&quot;; } 이런식으로 Get 요청을 받을수 있다. 플라스크와 비슷하다고도 볼수있다. 해당 경로로 가면 함수가 실행 그리고 타입스크립트니깐 함수명: strin...",
     "thumbnail": "https://velog.velcdn.com/images/m161awm/post/384bbe54-fac7-4b96-a68b-1d299febc2e5/image.png",
-    "likes": 0
+    "likes": 1
   },
   {
     "title": "NestJs 01",
