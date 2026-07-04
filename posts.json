@@ -1,5 +1,13 @@
 [
   {
+    "title": "k8sGame에 대해.araboja + 한국어 배포판",
+    "link": "https://velog.io/@m161awm/k8sGame%EC%97%90-%EB%8C%80%ED%95%B4.araboja-%ED%95%9C%EA%B8%80-%ED%8C%A8%EC%B9%98",
+    "pubDate": "Sat, 04 Jul 2026 11:15:54 GMT",
+    "description": "인스타를 보던 중 재미있는 게시글을 보았다! https://github.com/rohitg00/k8sgames k8s를 게임처럼 할 수 있다고?? 바로 들어가보았다. 캠페인이 아마 문제를 푸는탭인것같은데 들어가보겠다. Click palette = 리소스 선택/배치 Drag resource = 리소스 드래그 이동 Click resource = 리소스 정보 확인 Right-click = 스케일/...",
+    "thumbnail": "https://velog.velcdn.com/images/m161awm/post/a51237f4-2860-457e-b2e9-f08984bfe99f/image.png",
+    "likes": 0
+  },
+  {
     "title": "AWS SSM으로 프라이빗 서브넷에 있는 EC2에 들어가보기",
     "link": "https://velog.io/@m161awm/AWS-SSM-%EC%A0%95%EC%B1%85%EC%9C%BC%EB%A1%9C-%ED%94%84%EB%9D%BC%EC%9D%B4%EB%B9%97-%EC%84%9C%EB%B8%8C%EB%84%B7%EC%97%90-%EC%9E%88%EB%8A%94-EC2%EC%97%90-%EB%93%A4%EC%96%B4%EA%B0%80%EB%B3%B4%EA%B8%B0",
     "pubDate": "Fri, 12 Jun 2026 13:08:05 GMT",
@@ -150,13 +158,5 @@
     "description": "docker ps printHelloworld.py import numpy print(\"Hello world!\") 해당 파이썬 파일을 만들면 도커파일은 FROM python:alpine WORKDIR /app COPY . . RUN pip install numpy CMD [\"python\",\"printHellowolrd.py\"] 이런식으로 작성한다. 그 다음 터미널에서 해당 파일 위치로 들어가...",
     "thumbnail": "https://velog.velcdn.com/images/m161awm/post/9c3f053a-2d46-4ddf-a9d8-5d3996703ba0/image.png",
     "likes": 0
-  },
-  {
-    "title": "도커 배우기 02",
-    "link": "https://velog.io/@m161awm/%EB%8F%84%EC%BB%A4-%EB%B0%B0%EC%9A%B0%EA%B8%B0-02",
-    "pubDate": "Tue, 10 Mar 2026 17:03:39 GMT",
-    "description": "도커를 잘 사용하기 위해선 정의가 제대로 필요하다. 도커란? 웹 서버를 만들어서 배포하려는데 아마존 웹 서비스 같은곳으로 코드를 옮기고 환경설정하고 라이브러리 옮기는걸 반복하는건 당연히 귀찮다. 그래서 도커를 사용하여 옮기기 시작하였다. 도커는 OS, 환경설정의 영향도 받지 않기 때문에 협업하기도 편하다. 그래서 많은 사람들이 도커를 사용하기 시작하였다. 예시를 들면, const expres...",
-    "thumbnail": "https://velog.velcdn.com/images/m161awm/post/4b1a0549-4063-4cd9-80aa-0aa9184b1c9a/image.png",
-    "likes": 1
   }
 ]
