@@ -29,7 +29,7 @@
     "pubDate": "Wed, 13 May 2026 15:52:41 GMT",
     "description": "IaC(infrastructure as code) 도구인 테라폼, 드디어 시작하게 될것같다. 기존엔 AWS에서 직접 마우스를 움직여 서비스를 만들고 운영했지만 이젠 인프라를 직접 키보드로 구축해줄것이다. 먼저 설치를 해주겠다. brew tap hashicorp/tap brew install hashicorp/tap/terraform 기본 형식은 이렇다는데 해석을 해봐야겠다. resource...",
     "thumbnail": "https://velog.velcdn.com/images/m161awm/post/6044dafb-5d34-4da6-ace3-eca67a21f47a/image.png",
-    "likes": 0
+    "likes": 1
   },
   {
     "title": "(긴급!) 지금 절대로 코덱스를 다운로드 하지마세요 .",
