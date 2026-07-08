@@ -37,7 +37,7 @@
     "pubDate": "Sun, 10 May 2026 08:19:42 GMT",
     "description": "이 글은 LLM과 함께 제작되었습니다 맥에서 코덱스를 다운로드 하려고 하던 중 바로 사파리에 codex를 검색하여 맨 위에 있는 사이트에 접속하였다 당연히 OpenAI Codex를 다운로드하는 것처럼 보였다. 하지만... 복사하고 터미널에 붙혀넣기전 갑가지 수상한 명령어를 보고 즉시 중단하였다. echo \"Downloading Codex: https://chatgpt.com/codex-app...",
     "thumbnail": "https://velog.velcdn.com/images/m161awm/post/1525e177-5d7a-4881-8dda-2344f13076ce/image.png",
-    "likes": 0
+    "likes": 12
   },
   {
     "title": "NestJs를 활용해 S3에 이미지를 업로드하기",
@@ -45,7 +45,7 @@
     "pubDate": "Mon, 04 May 2026 12:20:47 GMT",
     "description": "S3란? AWS에 기본적인 서비스라고 하면 S3라는 서비스가 있다 Simple Storage Service S가 3개 있다고 해서 S3라고 부른다 S3에는 이미지 뿐만 아니라 프론트엔드나 다른것도 업로드 하고 보여줄수 있다. 다른 서비스와 달리 외부 에서 꺼내오고 넣는 방식으로 사용된다. 구축 먼저 인프라를 구축해주겠다. 편하려면 리전을 먼저 바꿔주자 VPC를 먼저 만들어주겠다. 이제 서브넷...",
     "thumbnail": "https://velog.velcdn.com/images/m161awm/post/6fbc059a-7e92-4e8b-9afb-a02f119a405e/image.png",
-    "likes": 0
+    "likes": 1
   },
   {
     "title": "AWS 탄력적 IP",
