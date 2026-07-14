@@ -768,20 +768,6 @@ fetch("links.json", { cache: "no-store" })
 const projectsGrid = document.getElementById("projectsGrid");
 const defaultProjects = [
   {
-    name: "Nginx-Starter",
-    url: "https://github.com/m161awm2/Nginx-Starter",
-    description: "Nginx 설정과 서버 운영을 연습하기 위한 저장소입니다.",
-    language: "Shell",
-    stars: 1
-  },
-  {
-    name: "NestCal",
-    url: "https://github.com/m161awm2/NestCal",
-    description: "모두의 캘린더인것이다!",
-    language: "TypeScript",
-    stars: 1
-  },
-  {
     name: "Dogsori",
     url: "https://github.com/m161awm2/Dogsori",
     description: "JavaScript 기반 프로젝트 저장소입니다.",
@@ -794,13 +780,27 @@ const defaultProjects = [
     description: "해당 사이트에 출제되었습니다",
     language: "TypeScript",
     stars: 1
+  },
+  {
+    name: "ebs-lesson-automator",
+    url: "https://github.com/m161awm2/ebs-lesson-automator",
+    description: "GitHub에서 프로젝트 내용을 확인해보세요.",
+    language: "JavaScript",
+    stars: 1
+  },
+  {
+    name: "k8sgames",
+    url: "https://github.com/m161awm2/k8sgames",
+    description: "k8s게임 한국어 패치 버전입니다. 게임을 하며 쿠버네티스를 배워보세요.",
+    language: "GitHub",
+    stars: 2
   }
 ];
 
 function renderProjects(items) {
   if (!projectsGrid) return;
 
-  const projects = Array.isArray(items) && items.length > 0 ? items : defaultProjects;
+  const projects = Array.isArray(items) ? items : defaultProjects;
   const markup = projects.map((project) => {
     const url = getSafeUrl(project.url);
     if (!url) return "";
@@ -832,7 +832,7 @@ function renderProjects(items) {
 
 renderProjects(defaultProjects);
 
-fetch("projects.json", { cache: "no-store" })
+fetch(`projects.json?v=${Date.now()}`, { cache: "no-store" })
   .then((response) => {
     if (!response.ok) throw new Error("projects.json request failed");
     return response.json();

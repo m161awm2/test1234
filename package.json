@@ -2,9 +2,10 @@
   "name": "test1234",
   "version": "1.0.0",
   "private": true,
-  "description": "GitHub Pages static site with Velog RSS generated posts.json",
+  "description": "GitHub Pages portfolio with automatically updated Velog posts and GitHub pinned repositories",
   "scripts": {
-    "fetch:velog": "node scripts/fetch-velog.js"
+    "fetch:velog": "node scripts/fetch-velog.js",
+    "fetch:github-pins": "node scripts/fetch-github-pins.js"
   },
   "dependencies": {
     "fast-xml-parser": "^5.8.0"
