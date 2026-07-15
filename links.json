@@ -1,19 +1,26 @@
 [
+
   {
-    "title": "✍️ Velog Tech Blog",
-    "shortTitle": "✍️ Velog",
-    "url": "https://velog.io/@m161awm/posts",
-    "description": "https://velog.io/@m161awm/posts"
+    "title": "FUNNY GAME",
+    "url": "https://linux.m161awm.kr/Age-of-linux2/",
+    "description": "https://linux.m161awm.kr/Age-of-linux2"
   },
+  
   {
-    "title": "🧩 GitHub Profile",
-    "shortTitle": "🧩 GitHub",
+    "title": "GitHub Profile",
+    "shortTitle": "GitHub",
     "url": "https://github.com/m161awm2",
     "description": "https://github.com/m161awm2"
   },
   {
-    "title": "📚 Notion Page",
+    "title": "Notion Page",
     "url": "https://app.notion.com/p/36910e8cd0688039be41f06eeae05c22?v=36910e8cd0688053bcd4000c957c326c&source=copy_link",
     "description": "https://app.notion.com/p/m161awm"
+  },
+  {
+    "title": "Velog Tech Blog",
+    "shortTitle": "Velog",
+    "url": "https://velog.io/@m161awm/posts",
+    "description": "https://velog.io/@m161awm/posts"
   }
 ]
