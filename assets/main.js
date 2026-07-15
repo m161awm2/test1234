@@ -649,15 +649,21 @@ function renderJourney(items) {
     const date = escapeHtml(item.date || "");
     const title = escapeHtml(item.title || "기록을 준비 중입니다.");
     const description = item.description || "";
+    const url = getSafeUrl(item.url);
+    const tagName = url ? "a" : "div";
+    const linkAttributes = url
+      ? ` href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer" aria-label="${title} 홈페이지 열기"`
+      : "";
+    const linkClass = url ? " journey-item-link" : "";
 
     return `
-      <div class="journey-item">
+      <${tagName} class="journey-item${linkClass}"${linkAttributes}>
         <span class="journey-date">${date || "Now"}</span>
         <div>
           <b>${title}</b>
           ${description ? `<p>${escapeHtml(description)}</p>` : ""}
         </div>
-      </div>
+      </${tagName}>
     `;
   }).join("");
 }
