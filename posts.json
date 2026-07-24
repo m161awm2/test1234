@@ -5,7 +5,7 @@
     "pubDate": "Sat, 04 Jul 2026 11:15:54 GMT",
     "description": "인스타를 보던 중 재미있는 게시글을 보았다! https://github.com/rohitg00/k8sgames k8s를 게임처럼 할 수 있다고?? 바로 들어가보았다. 캠페인이 아마 문제를 푸는탭인것같은데 들어가보겠다. Click palette = 리소스 선택/배치 Drag resource = 리소스 드래그 이동 Click resource = 리소스 정보 확인 Right-click = 스케일/...",
     "thumbnail": "https://velog.velcdn.com/images/m161awm/post/a51237f4-2860-457e-b2e9-f08984bfe99f/image.png",
-    "likes": 0
+    "likes": 2
   },
   {
     "title": "AWS SSM으로 프라이빗 서브넷에 있는 EC2에 들어가보기",
