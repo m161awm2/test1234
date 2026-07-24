@@ -101,7 +101,7 @@
     "pubDate": "Thu, 26 Mar 2026 12:51:18 GMT",
     "description": "데브옵스 분야의 핵심! RDS를 써보자!!!! 그 전에는 sqlite를 사용하여 DB가 EC2 안에 있었지만 이제 mysql로 바꿔서 RDS를 사용할수 있게되었다! 첫번째 고난은 그 전에 있었던 프레임워크 코드를 sqlite에서 mysql문법으로 바꾸는거였다, 아주 크게 다른건 아니지만 sqlite에선 conn = sqlite.connect(\"db이름\") 으로 쉽게 생성하고 연결하였지만 my...",
     "thumbnail": "https://velog.velcdn.com/images/m161awm/post/f454eed7-1ad6-4f61-be87-fd20949b7590/image.png",
-    "likes": 0
+    "likes": 1
   },
   {
     "title": "AWS EC2",
