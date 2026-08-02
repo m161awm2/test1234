@@ -1,282 +1,108 @@
+<!doctype html>
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>m161awm | DevOps · Cloud · Backend</title>
-
-  <meta name="description" content="m161awm의 AWS, Linux, NestJS, DevOps 포트폴리오" />
-  <link rel="icon" type="image/png" href="https://github.com/m161awm2.png" />
-  <link rel="apple-touch-icon" href="https://github.com/m161awm2.png" />
-
-  <link rel="stylesheet" href="assets/styles.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Ku Bonmu의 AWS, Linux, NestJS, DevOps 포트폴리오" />
+  <title>Ku Bonmu | DevOps · Cloud · Backend</title>
+  <link rel="stylesheet" href="assets/prism.css" />
 </head>
-
 <body>
-  <div class="cursor-glow" id="cursorGlow"></div>
-
   <header>
     <nav class="wrap">
-      <a class="brand" href="#">
-        <span class="brand-mark">
-          <img class="logo" id="brandAvatar" src="https://github.com/m161awm2.png" alt="m161awm GitHub avatar" />
-          <span class="brand-github" aria-hidden="true">
-            <svg class="github-icon" viewBox="0 0 16 16">
-              <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82A7.6 7.6 0 0 1 8 3.86c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z" />
-            </svg>
-          </span>
-        </span>
-        <span>m161awm</span>
-      </a>
-
       <div class="nav-links">
-        <a href="#stack">Stack</a>
-        <a href="#github">GitHub</a>
-        <a href="#node-graph">Graph</a>
-        <a href="#activity">Activity</a>
-        <a href="#projects">Projects</a>
-        <a href="#posts">Velog</a>
-        <a href="#links">Links</a>
+        <a href="#stack">Stack</a><a href="#network">Graph</a><a href="#projects">Projects</a><a href="#posts">Velog</a><a href="#links">Links</a>
       </div>
     </nav>
   </header>
 
-  <main>
+  <main id="top">
     <section class="hero">
-      <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="https://d22iqf0kbpl4e2.cloudfront.net/BW6nhK1%20-%20Imgur.png">
-        <source src="https://d22iqf0kbpl4e2.cloudfront.net/cloud_hero_loop_seamless_hq.mp4" type="video/mp4">
+      <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="https://d22iqf0kbpl4e2.cloudfront.net/BW6nhK1%20-%20Imgur.png">
+        <source src="https://d22iqf0kbpl4e2.cloudfront.net/cloud_hero_loop_seamless_hq.mp4" type="video/mp4" />
       </video>
       <div class="wrap hero-copy">
         <span class="hero-kicker">Cloud Infrastructure / DevOps</span>
-        <h1>m161awm</h1>
+        <h1>Ku Bonmu</h1>
         <p>AWS · Kubernetes · Linux · Backend</p>
       </div>
     </section>
 
     <section class="wrap intro-content">
       <div>
-        <div class="badge">
-          <span class="pulse"></span>
-          보안과 학생 개발자
-        </div>
-
-        <div class="identity">
-          <b>특이점이 온다</b>
-          <span>구본무</span>
-        </div>
-
         <div class="journey-box">
-          <h2>나의 여정</h2>
-          <div class="journey-list" id="journeyList">
-            <div class="journey-item">
-              <span class="journey-date">2026.03.03</span>
-              <div>
-                <b>세명컴퓨터고등학교 입학</b>
-                <p>보안과에서 개발, 인프라, 클라우드를 공부하기 시작했습니다.</p>
-              </div>
-            </div>
-          </div>
+          <h2>Career</h2>
+          <div class="journey-list" id="journeyList"><p class="state">여정을 불러오는 중입니다.</p></div>
         </div>
-
-        <div class="actions" id="heroLinks">
-          <a class="btn" href="https://m161awm2.github.io/Age-of-linux2" target="_blank" rel="noopener noreferrer">Age Of Linux 2</a>
-          <a class="btn" href="https://velog.io/@m161awm/posts" target="_blank" rel="noopener noreferrer">Velog Tech Blog</a>
-          <a class="btn" href="https://github.com/m161awm2" target="_blank" rel="noopener noreferrer">GitHub Profile</a>
+        <div class="actions">
+          <a class="btn primary" href="https://velog.io/@m161awm/posts" target="_blank" rel="noreferrer">Velog Tech Blog</a>
+          <a class="btn" href="https://github.com/m161awm2" target="_blank" rel="noreferrer">GitHub Profile</a>
         </div>
-
         <div class="mini-grid">
-          <div class="mini">
-            <b>AWS</b>
-            <span>클라우드 배포 학습</span>
-          </div>
-          <div class="mini">
-            <b>Linux</b>
-            <span>Nginx · systemd · logs</span>
-          </div>
-          <div class="mini">
-            <b>NestJS</b>
-            <span>API · Session · Env</span>
-          </div>
-          <div class="mini">
-            <b>DB</b>
-            <span>MySQL · MariaDB</span>
-          </div>
+          <div class="mini"><b>AWS</b><span>클라우드 배포 학습</span></div>
+          <div class="mini"><b>Linux</b><span>Nginx · systemd · logs</span></div>
+          <div class="mini"><b>NestJS</b><span>API · Session · Env</span></div>
+          <div class="mini"><b>DB</b><span>MySQL · MariaDB</span></div>
         </div>
       </div>
 
-      <div class="github-profile profile-switch-card" id="github" data-profile-view="github">
-        <button class="profile-switch-button" id="profileSwitchButton" type="button" aria-label="Velog 프로필 보기">→</button>
-        <div class="github-banner profile-static-banner" aria-hidden="true">
-          <span class="floating-box box-1"></span>
-          <span class="floating-box box-2"></span>
-          <span class="floating-box box-3"></span>
-          <span class="floating-box box-4"></span>
-          <span class="floating-box box-5"></span>
-          <span class="floating-shape shape-cloud"></span>
-          <span class="floating-shape shape-server"></span>
-          <span class="floating-shape shape-chip"></span>
-          <span class="floating-shape shape-nodes"></span>
+      <article class="profile-card" id="profileCard">
+        <div class="profile-cover"></div>
+        <div class="profile-body">
+          <img src="https://github.com/m161awm2.png" alt="Ku Bonmu 프로필 이미지" />
+          <span class="profile-label">GITHUB PROFILE</span>
+          <h2>Ku Bonmu</h2>
+          <div class="profile-stats"><div><b id="repoCount">—</b><span>Repositories</span></div><div><b id="followerCount">—</b><span>Followers</span></div><div><b id="followingCount">—</b><span>Following</span></div></div>
+          <a class="btn primary wide" href="https://github.com/m161awm2" target="_blank" rel="noreferrer">GitHub Profile</a>
         </div>
-        <div class="profile-panel active" id="githubProfilePanel">
-          <div class="github-state">GitHub 프로필을 불러오는 중입니다.</div>
-        </div>
-        <div class="profile-panel" id="velogProfile">
-          <div class="velog-state">Velog 프로필을 불러오는 중입니다.</div>
-        </div>
-      </div>
+      </article>
     </section>
 
-    <section class="wrap reveal" id="stack">
-      <div class="section-head">
-        <h2>Tech Stack</h2>
-        <p>직접 배포하고 운영하면서 사용해본 기술들입니다.</p>
-      </div>
-
+    <section class="wrap content-section" id="stack">
+      <div class="section-head"><h2>Tech Stack</h2><p>직접 배포하고 운영하면서 사용해본 기술들입니다.</p></div>
       <div class="stack-list">
-        <div class="stack-category">
-          <h3>Cloud & Infrastructure</h3>
-          <div class="stack-badges">
-            <span class="stack-badge"><img src="https://cdn.simpleicons.org/kubernetes/326CE5" alt="" loading="lazy">Kubernetes</span>
-            <span class="stack-badge"><span class="stack-mark">AWS</span>AWS</span>
-            <span class="stack-badge"><img src="https://cdn.simpleicons.org/linux/FCC624" alt="" loading="lazy">Linux</span>
-            <span class="stack-badge"><img src="https://cdn.simpleicons.org/docker/2496ED" alt="" loading="lazy">Docker</span>
-            <span class="stack-badge"><img src="https://cdn.simpleicons.org/nginx/009639" alt="" loading="lazy">Nginx</span>
-          </div>
-        </div>
+        <article><h3>Cloud & Infrastructure</h3><div class="chips"><span>Kubernetes</span><span>AWS</span><span>Linux</span><span>Docker</span><span>Nginx</span></div></article>
+        <article><h3>Languages & Backend</h3><div class="chips"><span>Python</span><span>Flask</span><span>JavaScript</span><span>TypeScript</span><span>NestJS</span><span>Node.js</span><span>MySQL</span></div></article>
+        <article><h3>DevOps & Tools</h3><div class="chips"><span>GitHub Actions</span><span>Git</span><span>Argo CD</span><span>Terraform</span></div></article>
+      </div>
+    </section>
 
-        <div class="stack-category">
-          <h3>Languages & Backend</h3>
-          <div class="stack-badges">
-            <span class="stack-badge"><img src="https://cdn.simpleicons.org/python/3776AB" alt="" loading="lazy">Python</span>
-            <span class="stack-badge"><img src="https://cdn.simpleicons.org/flask/FFFFFF" alt="" loading="lazy">Flask</span>
-            <span class="stack-badge"><img src="https://cdn.simpleicons.org/javascript/F7DF1E" alt="" loading="lazy">JavaScript</span>
-            <span class="stack-badge"><img src="https://cdn.simpleicons.org/typescript/3178C6" alt="" loading="lazy">TypeScript</span>
-            <span class="stack-badge"><img src="https://cdn.simpleicons.org/nestjs/E0234E" alt="" loading="lazy">NestJS</span>
-            <span class="stack-badge"><img src="https://cdn.simpleicons.org/nodedotjs/5FA04E" alt="" loading="lazy">Node.js</span>
-            <span class="stack-badge"><img src="https://cdn.simpleicons.org/mysql/4479A1" alt="" loading="lazy">MySQL</span>
-          </div>
-        </div>
-
-        <div class="stack-category">
-          <h3>DevOps & Tools</h3>
-          <div class="stack-badges">
-            <span class="stack-badge"><img src="https://cdn.simpleicons.org/githubactions/2088FF" alt="" loading="lazy">GitHub Actions</span>
-            <span class="stack-badge"><img src="https://cdn.simpleicons.org/git/F05032" alt="" loading="lazy">Git</span>
-          </div>
-        </div>
-
-        <div class="stack-category">
-          <h3>Learning</h3>
-          <div class="stack-badges">
-            <span class="stack-badge"><img src="https://cdn.simpleicons.org/argo/EF7B4D" alt="" loading="lazy">Argo CD</span>
-            <span class="stack-badge"><img src="https://cdn.simpleicons.org/terraform/844FBA" alt="" loading="lazy">Terraform</span>
-          </div>
+    <section class="wrap content-section" id="network">
+      <div class="section-head"><h2>Interactive Node Graph</h2></div>
+      <div class="network-preview" id="networkPreview">
+        <canvas id="previewCanvas"></canvas>
+        <span class="network-title">Ku Bonmu · Network</span>
+        <div class="network-controls">
+          <button id="zoomOut" type="button" aria-label="축소">−</button>
+          <button id="resetNetwork" type="button">Reset</button>
+          <button id="zoomIn" type="button" aria-label="확대">＋</button>
+          <button class="network-open" id="openNetwork" type="button">전체보기 ↗</button>
+          <button class="network-close" id="closeNetwork" type="button">닫기 ×</button>
         </div>
       </div>
     </section>
 
-    <section class="wrap reveal" id="node-graph">
-      <div class="section-head">
-        <h2>Interactive Node Graph</h2>
-        <p>기술, 프로젝트, 인프라 경험이 어떻게 연결되는지 시각적으로 정리했습니다.</p>
-      </div>
-
-      <div class="node-graph-panel">
-        <div class="node-map has-active" id="nodeMap">
-          <div class="node-toolbar">
-            <span class="node-hint">Drag empty space to move · Scroll to zoom</span>
-            <div class="node-toolbar-actions">
-              <span class="node-zoom" id="nodeZoom">100%</span>
-              <button class="node-reset" id="resetGraphView" type="button">Reset View</button>
-            </div>
-          </div>
-          <div class="graph-viewport" id="graphViewport">
-            <svg class="node-lines" id="nodeLines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"></svg>
-          </div>
-        </div>
-
-        <aside class="node-detail" id="nodeDetail">
-          <p class="detail-kicker">Selected Node</p>
-          <h3>m161awm</h3>
-          <p class="detail-category">Center</p>
-          <p class="detail-description">클라우드 인프라와 DevOps를 중심으로 AWS, Linux, Kubernetes, CI/CD를 실습하며 성장하는 포트폴리오입니다.</p>
-          <div class="detail-tags" aria-label="Related keywords">
-            <span class="detail-tags-label">Related keywords</span>
-            <span>Cloud</span>
-            <span>DevOps</span>
-            <span>AWS</span>
-          </div>
-        </aside>
-      </div>
+    <section class="wrap content-section" id="activity">
+      <div class="section-head"><h2>GitHub Activity</h2></div>
+      <div class="activity-card"><img src="https://ghchart.rshah.org/2563eb/m161awm2" alt="Ku Bonmu GitHub 활동 그래프" loading="lazy" /><p>GitHub 활동 기록입니다!</p></div>
     </section>
 
-    <section class="wrap reveal" id="activity">
-      <div class="section-head">
-        <h2>GitHub Activity</h2>
-      </div>
-
-      <div class="github-activity-card" id="githubActivityCard">
-        <img
-          src="https://ghchart.rshah.org/39d353/m161awm2"
-          alt="m161awm2 GitHub contribution graph"
-          loading="lazy"
-          class="github-contribution-img"
-          id="githubContributionGraph"
-        />
-        <p class="github-activity-desc">
-          GitHub 활동 기록입니다!
-        </p>
-        <p class="github-activity-fallback">
-          GitHub contribution graph를 불러오지 못했습니다. 잠시 후 다시 확인해주세요.
-        </p>
-      </div>
+    <section class="wrap content-section" id="projects">
+      <div class="section-head"><h2>Projects</h2><p>GitHub 프로필에 고정해둔 프로젝트만 모았습니다.</p></div>
+      <div class="card-grid" id="projectGrid"><p class="state">프로젝트를 불러오는 중입니다.</p></div>
     </section>
 
-    <section class="wrap reveal" id="projects">
-      <div class="section-head">
-        <h2>Projects</h2>
-        <p>GitHub 프로필에 고정해둔 프로젝트만 모았습니다.</p>
-      </div>
-
-      <div class="projects-grid" id="projectsGrid">
-        <div class="post-state">프로젝트를 불러오는 중입니다.</div>
-      </div>
+    <section class="wrap content-section" id="posts">
+      <div class="section-head"><h2>Velog Notes</h2><p>AWS, Linux, Backend를 공부하며 기록한 최근 글입니다.</p></div>
+      <div class="card-grid" id="postGrid"><p class="state">최근 글을 불러오는 중입니다.</p></div>
     </section>
 
-    <section class="wrap reveal" id="posts">
-      <div class="section-head">
-        <h2>Velog Notes</h2>
-        <p>AWS, Linux, Backend를 공부하며 기록한 최근 글입니다.</p>
-      </div>
-
-      <div class="post-sort" id="postSort" aria-label="Velog 글 정렬">
-        <button class="sort-btn active" type="button" data-sort="latest">최신순</button>
-        <button class="sort-btn" type="button" data-sort="oldest">오래된순</button>
-        <button class="sort-btn" type="button" data-sort="likes">하트순</button>
-      </div>
-
-      <div class="posts-grid" id="velogPosts">
-        <div class="post-state">최근 글을 불러오는 중입니다.</div>
-      </div>
-    </section>
-
-    <section class="wrap reveal" id="links">
-      <div class="panel">
-        <h2>Links</h2>
-        <p>운영 중인 서버와 학습 기록, 코드를 한곳에 모았습니다.</p>
-
-        <div class="links-list" id="linksList">
-          <div class="link-state">링크를 불러오는 중입니다.</div>
-        </div>
-      </div>
+    <section class="wrap content-section" id="links">
+      <div class="links-panel"><div class="section-head"><h2>Links</h2><p>운영 중인 서버와 학습 기록, 코드를 한곳에 모았습니다.</p></div><div class="links-list" id="linksList"></div></div>
     </section>
   </main>
 
-  <footer>
-    <div class="wrap">
-      © <span id="year"></span> m161awm. Built with AWS · Nginx · NestJS mindset.
-    </div>
-  </footer>
-
-  <script src="assets/main.js"></script>
+  <footer><div class="wrap">© <span id="year"></span> Ku Bonmu. Built with AWS · Nginx · NestJS mindset.</div></footer>
+  <script src="assets/prism.js"></script>
 </body>
 </html>
