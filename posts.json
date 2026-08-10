@@ -53,7 +53,7 @@
     "pubDate": "Mon, 04 May 2026 12:20:47 GMT",
     "description": "S3란? AWS에 기본적인 서비스라고 하면 S3라는 서비스가 있다 Simple Storage Service S가 3개 있다고 해서 S3라고 부른다 S3에는 이미지 뿐만 아니라 프론트엔드나 다른것도 업로드 하고 보여줄수 있다. 다른 서비스와 달리 외부 에서 꺼내오고 넣는 방식으로 사용된다. 구축 먼저 인프라를 구축해주겠다. 편하려면 리전을 먼저 바꿔주자 VPC를 먼저 만들어주겠다. 이제 서브넷...",
     "thumbnail": "https://velog.velcdn.com/images/m161awm/post/6fbc059a-7e92-4e8b-9afb-a02f119a405e/image.png",
-    "likes": 1
+    "likes": 0
   },
   {
     "title": "AWS 탄력적 IP",
