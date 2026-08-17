@@ -1,5 +1,13 @@
 [
   {
+    "title": "Envoy Gateway로 Gateway API 구성하기",
+    "link": "https://velog.io/@m161awm/Envoy-Gateway%EB%A1%9C-Gateway-API-%EA%B5%AC%EC%84%B1%ED%95%98%EA%B8%B0",
+    "pubDate": "Mon, 17 Aug 2026 13:21:23 GMT",
+    "description": "예전에 Ingress를 썼던 이유 게이트웨이 API를 설명하기 전, 쿠버네티스 인그레스(Ingress)의 역사를 먼저 얘기 해보겠다. 2023년 게이트웨이 API를 사용하기 전, k8s사용자들은 인그레스라는걸 많이 사용했었다. 인그레스를 왜 사용했었냐 하면 안정적이게 외부 사용자들을 서비스로 보내는 역할도 함과 동시에 TLS인증서를 발급받거나, 디플로이먼트와의 라우트 연결을 위해 해석하는 역...",
+    "thumbnail": "https://velog.velcdn.com/images/m161awm/post/530bfcab-1a7b-4259-b4c1-b8a9f539ed94/image.png",
+    "likes": 0
+  },
+  {
     "title": "KIND(Kubernetes IN Docker)를 활용하여 Github actions를 통해 EKS로 배포하기",
     "link": "https://velog.io/@m161awm/KINDKubernetes-IN-Docker%EB%A5%BC-%ED%99%9C%EC%9A%A9%ED%95%98%EC%97%AC-Github-actions%EB%A5%BC-%ED%86%B5%ED%95%B4-EKS%EB%A1%9C-%EB%B0%B0%ED%8F%AC%ED%95%98%EA%B8%B0",
     "pubDate": "Sat, 01 Aug 2026 11:05:16 GMT",
@@ -150,13 +158,5 @@
     "description": "FLASK 웹 개발을 한다면 꼭 배워야하는 파이썬의 모듈 FLASK 를 배워야겠다, 이런것도 안배우면 파이썬을 쓰는 의미가 없어진다. from flask import Flask app = Flask(-_name__) @app.route(\"/\") def home(): return \"안녕\" app.run(host=\"0.0.0.0\", port=5000) 줄마다 뭔 뜻인지 알아보자... from f...",
     "thumbnail": "https://velog.velcdn.com/images/m161awm/post/a30eb5bf-3317-4f49-bad3-a0a4d741f8e9/image.png",
     "likes": 0
-  },
-  {
-    "title": "git 01",
-    "link": "https://velog.io/@m161awm/git-01",
-    "pubDate": "Thu, 12 Mar 2026 16:17:14 GMT",
-    "description": "GIT 만약에 코드를 망쳐서 2일전으로 코드를 돌려놔야 할 때 우리는 맨날 메모장을 열어서 일마다 코드를 저장해두고 코드를 바꿔놔야 한다. 하지만 GIT 이 있다면 작업한 코드들을 기록하거나, 보관이 가능해서 되돌려 이런 귀찮은 과정을 안 해도 되고, 심지어 협업 했을때 누가 이 코드들을 망쳤는지 범일을 찾을 수 있다. 이름과 이메일 등록 GIT을 설치 한 뒤에 바탕화면에 아무 폴더 하나를...",
-    "thumbnail": "https://velog.velcdn.com/images/m161awm/post/6e70152d-c8b5-4c08-bdbb-0d420b37543b/image.png",
-    "likes": 1
   }
 ]
