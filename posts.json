@@ -21,7 +21,7 @@
     "pubDate": "Sat, 01 Aug 2026 11:05:16 GMT",
     "description": "이번 글에서는 NestJS 애플리케이션을 Docker 이미지로 만든 뒤 다음 순서로 배포한다. Pull Request 또는 main 브랜치 push가 발생한다. GitHub Actions 러너 안에 KIND 클러스터를 만든다. 같은 이미지를 KIND에 먼저 배포하고 실제 HTTP 응답까지 검사한다. KIND 검증을 통과한 main push만 AWS OIDC로 인증한다. 이미지를 Amazon...",
     "thumbnail": "https://velog.velcdn.com/images/m161awm/post/bcfcf0b7-03c2-44d4-b59d-000b94bd0d93/image.png",
-    "likes": 1
+    "likes": 0
   },
   {
     "title": "k8sGame에 대해.araboja + 한국어 배포판",
