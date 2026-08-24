@@ -1,7 +1,7 @@
 [
   {
     "title": "[k8s] 이제 msa환경에선 인그레스를 안쓴다. Gateway API 구축해보기",
-    "link": "https://velog.io/@m161awm/Envoy-Gateway%EB%A1%9C-Gateway-API-%EA%B5%AC%EC%84%B1%ED%95%98%EA%B8%B0",
+    "link": "https://velog.io/@m161awm/k8s-%EC%9D%B4%EC%A0%9C-msa%ED%99%98%EA%B2%BD%EC%97%90%EC%84%A0-%EC%9D%B8%EA%B7%B8%EB%A0%88%EC%8A%A4%EB%A5%BC-%EC%95%88%EC%93%B4%EB%8B%A4.-Gateway-API-%EA%B5%AC%EC%B6%95%ED%95%B4%EB%B3%B4%EA%B8%B0",
     "pubDate": "Mon, 17 Aug 2026 13:21:23 GMT",
     "description": "예전에 Ingress를 썼던 이유 게이트웨이 API를 설명하기 전, 쿠버네티스 인그레스(Ingress)의 역사를 먼저 얘기 해보겠다. 2023년 게이트웨이 API를 사용하기 전, k8s사용자들은 인그레스라는걸 많이 사용했었다. 인그레스를 왜 사용했었냐 하면 안정적이게 외부 사용자들을 서비스로 보내는 역할도 함과 동시에 TLS인증서를 발급받거나, 디플로이먼트와의 라우트 연결을 위해 해석하는 역...",
     "thumbnail": "https://velog.velcdn.com/images/m161awm/post/530bfcab-1a7b-4259-b4c1-b8a9f539ed94/image.png",
